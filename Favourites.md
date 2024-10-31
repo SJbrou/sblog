@@ -6,7 +6,7 @@ title: My favourite resources
 # Favourites
 Some of my favourite resources, all neatly ordered.
 
-## Raw-data repositories
+## Dataset repositories
 - [NASA Climate Change](https://climate.nasa.gov/vital-signs/global-temperature/?intent=121)
 - [CBS Datasets](https://opendata.cbs.nl/statline/#/CBS/nl/navigatieScherm/thema)
 

@@ -5,11 +5,13 @@ title: Nudges in the course
 categories: ['VU']
 tags: ['Nudge']
 ---
-Essay: Practicing what you preach throughout the Nudge course
+Essay: Practicing what you preach: Nudges in the Nudge course.
+best educational design practices in higher education
 <!--excerpt -->
 <br>
 
-I was impressed by the high dedactic and pedagogic level of the "Nudge: Influencing Behaviour" course. So much that it bleaked performances of my other lecturers. Lets dive into the best practices deployed throughout the course
+During "Nudge: Influencing Behaviour" I was so impressed by the dedactic and pedagogic level that it bleaked my experience of other courses. 
+I was impressed by the high  pedagogic and dedactic level of the "Nudge: Influencing Behaviour" course. So much so that it bleaked performances of my other lecturers. Lets dive into the best practices deployed throughout the course
 
 ## Context - what is nudgeing
 Thaler and Sunstein defined their concept as the <a href="https://en.wikipedia.org/wiki/Nudge_theory#Definition">following</a>:

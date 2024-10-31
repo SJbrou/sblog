@@ -4,9 +4,9 @@
   link: /about.html
 - name: Activity
   link: /blog.html
-- name: favourites
-  link: /Favourites.html
+- name: Favourites
+  link: /favourites.html
 - name: Projects
   link: /projects.html
 - name: VU
-  link: /VU.html
+  link: /vu.html

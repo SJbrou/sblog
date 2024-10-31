@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          {% include navigation.html %}
+        </h3>
+      </header>
+
+      <div id="content">
+        {{ content }}
+      </div>
+    </div>
+  </body>
+</html>

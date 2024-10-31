@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Site todo - </title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <style>
+nav {
+  display: flex;
+  justify-content: space-between; /* Creates equal spacing between items */
+  align-items: center;
+  width: 100%;
+  padding: 0.5em 0;
+}
+
+.nav-item {
+  flex-grow: 1; /* Each item takes equal width space based on available space */
+  text-align: center;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a.current {
+  color: white;
+  font-weight: bold;
+}
+
+</style>
+
+<nav>
+  
+    <span class="nav-item">
+      <a href="/">Home</a>
+    </span>
+  
+    <span class="nav-item">
+      <a href="/about.html">Me</a>
+    </span>
+  
+    <span class="nav-item">
+      <a href="/blog.html">Activity</a>
+    </span>
+  
+    <span class="nav-item">
+      <a href="/favourites.html">favourites</a>
+    </span>
+  
+    <span class="nav-item">
+      <a href="/projects.html">Projects</a>
+    </span>
+  
+    <span class="nav-item">
+      <a href="/VU.html">VU</a>
+    </span>
+  
+</nav>
+
+        </h3>
+      </header>
+
+      <div id="content">
+        <article class='post'>
+    <h1 class='post-title'>Site todo</h1>
+    <div class="post-date">Oct 28, 2024</div>
+    <style>
+li {
+  display: flex;
+  justify-content: space-between;
+}
+.changelog_date {
+  margin-left: auto;
+  text-align: right;
+  font-family: Menlo, Monaco, "Courier New", monospace; /* Technical font */
+  font-size: 0.9em; /* Slightly smaller font size, about 1px smaller */
+}
+
+</style>
+
+<h3 id="todo">Todo</h3>
+<ul>
+  <li>Include report bug option</li>
+  <li>Include “respond” options</li>
+  <li>Improve post categorization / add tags-code</li>
+</ul>
+
+<h3 id="changelog">Changelog</h3>
+
+<ul>
+  <li>Implemented simple post categorization <span class="changelog_date">01-11-2024</span></li>
+  <li>Started writing Essay on Nudge <span class="changelog_date">31-10-2024</span></li>
+  <li>Started site development <span class="changelog_date">30-10-2024</span></li>
+  <li>Learned about Jekyll <span class="changelog_date">30-10-2024</span></li>
+</ul>
+
+</article>
+      </div>
+    </div>
+  </body>
+</html>

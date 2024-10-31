@@ -1,0 +1,222 @@
+// VARIABLES
+$font-family:       "Helvetica Neue", Helvetica, Arial, sans-serif;
+$code-font-family:  Menlo, Monaco, "Courier New", monospace;
+
+// Color Variables
+$masthead-color:         #505050;
+$masthead-small-color:   #C0C0C0;
+
+$post-title-color:       #303030;
+$post-date-color:        #9a9a9a;
+
+$body-color:            #515151;
+$body-background-color: #fff;
+
+$link-color:            #268bd2;
+$link-hover-color:      #1a5b8a; // Slightly darker for hover
+
+$headings-color:        #313131; // h1, h2, h3, h4, h5, h6
+
+$strong-color:          #303030; // strong
+
+$pre-background-color:  #f9f9f9; // pre
+
+$blockquote-color:      #7a7a7a;  // blockquote
+$blockquote-border-color: #e5e5e5;
+
+$table-border-color:    #e5e5e5;
+$table-odd-background-color: #f9f9f9;
+
+// ACTUAL CSS
+
+html {
+  font-family: $font-family;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+body {
+  color: $body-color;
+  background-color: $body-background-color;
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  strong {
+    color: inherit; // Inherit color from parent
+  }
+  
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $link-hover-color; // Change color on hover
+  }
+}
+
+// Current Link Style
+nav a {
+  color: #268bd2; // Default link color
+}
+
+nav a.current {
+  color: white; // Current link color
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.25;
+  color: $headings-color;
+  text-rendering: optimizeLegibility;
+}
+
+// Body text
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  color: $strong-color;
+}
+
+// Lists
+ul, ol, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-bottom: 0.5rem;
+}
+
+// Code
+code,
+pre {
+  font-family: $code-font-family;
+}
+code {
+  padding: 0.25em 0.5em;
+  font-size: 85%;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  background-color: $pre-background-color;
+
+  code {
+    padding: 0;
+    font-size: 100%;
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
+// Quotes
+blockquote {
+  padding: 0.5rem 1rem;
+  margin: 0.8rem 0;
+  color: $blockquote-color;
+  border-left: 0.25rem solid $blockquote-border-color;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Images
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 5px;
+}
+
+// Tables
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid $table-border-color;
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid $table-border-color;
+  }
+
+  tr:nth-child(odd) td,
+  tr:nth-child(odd) th {
+    background-color: $table-odd-background-color;
+  }
+}
+
+// Container
+.container {
+  max-width: 38rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Masthead
+.masthead {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+
+  .masthead-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $masthead-color;
+
+    a {
+      color: $masthead-color;
+    }
+    
+    small {
+      color: $masthead-small-color;
+      font-size: 75%;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+  }
+}
+
+// Posts
+.post {
+  margin-bottom: 4em;
+
+  // Note: only change margin for title, date if inside post block
+  .post-title {
+    margin-top: 0;
+  }
+
+  // Meta data line below post title
+  .post-date {
+    display: block;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.post-title,
+.post-title a {
+  color: $post-title-color;
+}
+
+.post-date {
+  color: $post-date-color;  
+}

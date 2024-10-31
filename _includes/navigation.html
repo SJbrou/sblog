@@ -1,0 +1,33 @@
+<style>
+nav {
+  display: flex;
+  justify-content: space-between; /* Creates equal spacing between items */
+  align-items: center;
+  width: 100%;
+  padding: 0.5em 0;
+}
+
+.nav-item {
+  flex-grow: 1; /* Each item takes equal width space based on available space */
+  text-align: center;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a.current {
+  color: white;
+  font-weight: bold;
+}
+
+</style>
+
+<nav>
+  {% for item in site.data.navigation %}
+    <span class="nav-item">
+      <a href="{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>{{ item.name }}</a>
+    </span>
+  {% endfor %}
+</nav>

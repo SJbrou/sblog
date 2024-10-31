@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: Me
+  link: /about.html
+- name: Activity
+  link: /blog.html
+- name: favourites
+  link: /favourites.html
+- name: Projects
+  link: /projects.html
+- name: VU
+  link: /VU.html

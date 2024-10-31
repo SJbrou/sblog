@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Favourites
+title: My favourite resources
 ---
 
 # Favourites

@@ -12,4 +12,4 @@ collections:
 title: "Sblog"
 description: "My personal blog"
 url: "https://SJbrou.github.io"
-baseurl: "sblog"  # Leave blank for user sites, set to "/<repository-name>" for project sites
+baseurl: "/sblog"  # Leave blank for user sites, set to "/<repository-name>" for project sites

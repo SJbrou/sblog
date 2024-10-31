@@ -7,3 +7,9 @@ collections:
   - jekyll-seo-tag
 
   excerpt_separator: "<!--excerpt-->"
+
+# Site settings
+title: "Sblog"
+description: "My personal blog"
+url: "https://SJbrou.github.io"
+baseurl: ""  # Leave blank for user sites, set to "/<repository-name>" for project sites

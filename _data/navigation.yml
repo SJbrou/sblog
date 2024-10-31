@@ -1,17 +1,12 @@
 - name: Home
-  link: {{ site.baseurl }}/
-  
+  link: /
 - name: Me
-  link: {{ site.baseurl }}/about.html
-  
+  link: /about.html
 - name: Activity
-  link: {{ site.baseurl }}/blog.html
-  
+  link: /blog.html
 - name: favourites
-  link: {{ site.baseurl }}/favourites.html
-  
+  link: /Favourites.html
 - name: Projects
-  link: {{ site.baseurl }}/projects.html
-  
+  link: /projects.html
 - name: VU
-  link: {{ site.baseurl }}/VU.html
+  link: /VU.html

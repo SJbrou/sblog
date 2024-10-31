@@ -168,7 +168,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  jekyll (~> 4.3)
+  jekyll
   jekyll-feed
   jekyll-seo-tag
   jekyll-sitemap

@@ -39,7 +39,7 @@ layout: default
             <ul style="list-style-type: none">
                 <li>
                     <h3>
-                        <a href="{{ post.url | relative_url }}">
+                        <a href="{{ site.baseurl }}{{ post.url | relative_url }}">
                             {{ post.title | escape }}
                         </a>
                     </h3>
@@ -57,7 +57,7 @@ layout: default
             {% if post.categories contains page.category_filter and post.tags.size == 0 %}  <!-- Use the variable -->
                 <li>
                     <h3>
-                        <a href="{{ post.url | relative_url }}">
+                        <a href="{{ site.baseurl }}{{ post.url | relative_url }}">
                             {{ post.title | escape }}
                         </a>
                     </h3>

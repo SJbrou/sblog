@@ -1,4 +1,10 @@
-collections:
+
+url: "https://username.github.io"
+baseurl: "/sblog"  # Project site base URL
+paths:
+  css: "/assets/css"
+  js: "/assets/js"
+  images: "/assets/images"collections:
   authors:
 
   plugins:
@@ -7,9 +13,3 @@ collections:
   - jekyll-seo-tag
 
   excerpt_separator: "<!--excerpt-->"
-
-# Site settings
-title: "Sblog"
-description: "My personal blog"
-url: "https://SJbrou.github.io"
-baseurl: "/sblog"  # Leave blank for user sites, set to "/<repository-name>" for project sites

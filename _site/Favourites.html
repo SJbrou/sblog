@@ -1,85 +1,75 @@
 <!doctype html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
-    <title>Favourites - </title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-  </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourites - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between; /* Creates equal spacing between items */
+            align-items: center;
+            width: 100%;
+            padding: 0.5em 0;
+        }
+
+        .nav-item {
+            flex-grow: 1; /* Each item takes equal width space based on available space */
+            text-align: center;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav a.current {
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-      <header class="masthead">
-        <h3 class="masthead-title">
-          <style>
-nav {
-  display: flex;
-  justify-content: space-between; /* Creates equal spacing between items */
-  align-items: center;
-  width: 100%;
-  padding: 0.5em 0;
-}
+        <header class="masthead">
+            <h3 class="masthead-title">
+                <nav>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/">Home</a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/about.html">Me</a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/blog.html">Activity</a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/favourites.html" class="current">Favourites</a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/projects.html">Projects</a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="{{ site.baseurl }}/VU.html">VU</a>
+                    </span>
+                </nav>
+            </h3>
+        </header>
 
-.nav-item {
-  flex-grow: 1; /* Each item takes equal width space based on available space */
-  text-align: center;
-}
+        <div id="content">
+            <h1 id="favourites">Favourites</h1>
+            <p>Some of my favourite resources, all neatly ordered.</p>
 
-nav a {
-  color: inherit;
-  text-decoration: none;
-}
+            <h2 id="raw-data-repositories">Raw-data repositories</h2>
+            <ul>
+                <li><a href="https://climate.nasa.gov/vital-signs/global-temperature/?intent=121" target="_blank">NASA Climate Change</a></li>
+                <li><a href="https://opendata.cbs.nl/statline/#/CBS/nl/navigatieScherm/thema" target="_blank">CBS Datasets</a></li>
+            </ul>
 
-nav a.current {
-  color: white;
-  font-weight: bold;
-}
-
-</style>
-
-<nav>
-  
-    <span class="nav-item">
-      <a href="/">Home</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/about.html">Me</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/blog.html">Activity</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/favourites.html">favourites</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/projects.html">Projects</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/VU.html">VU</a>
-    </span>
-  
-</nav>
-
-
-        </h3>
-      </header>
-
-      <div id="content">
-        <h1 id="favourites">Favourites</h1>
-<p>Some of my favourite resources, all neatly ordered.</p>
-
-<h2 id="raw-data-repositories">Raw-data repositories</h2>
-<ul>
-  <li><a href="https://climate.nasa.gov/vital-signs/global-temperature/?intent=121">NASA Climate Change</a></li>
-  <li><a href="https://opendata.cbs.nl/statline/#/CBS/nl/navigatieScherm/thema">CBS Datasets</a></li>
-</ul>
-
-<h2 id="blogs">Blogs</h2>
-
-      </div>
+            <h2 id="blogs">Blogs</h2>
+            <!-- Add your blog links here -->
+        </div>
     </div>
-  </body>
+</body>
 </html>

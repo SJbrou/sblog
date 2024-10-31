@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Me
+title: About me
 ---
-# Me
 
 I’m Stan Brouwer <br>
 I am a human. I like to read books, teach, tingle with analytics, and like working out on early mornings with my friends. I'm following university education on a broad range of topics (master information sciences, behavioural economics, data science, logistics, philosophy, human physiology. Hire me! I'm looking for opportunities to write my master's thesis (still true in nov 2024).<br>

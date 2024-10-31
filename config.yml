@@ -11,5 +11,5 @@ collections:
 # Site settings
 title: "Sblog"
 description: "My personal blog"
-url: "https://SJbrou.github.io/sblog"
-baseurl: ""  # Leave blank for user sites, set to "/<repository-name>" for project sites
+url: "https://SJbrou.github.io"
+baseurl: "/sblog"  # Leave blank for user sites, set to "/<repository-name>" for project sites

@@ -3,9 +3,6 @@ layout: default
 title: Home
 ---
 
-
-
-
 You can email me if you like. I'm available. I’m happy to talk about analytics, human physiology, CrossFit and more.<br>
 <br>
 

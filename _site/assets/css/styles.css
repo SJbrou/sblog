@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -9,24 +10,18 @@ body {
   background-color: #fff;
 }
 
-a {
-  color: #268bd2;
-  text-decoration: none;
+.container {
+  max-width: 38rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-a strong {
-  color: inherit;
-}
-a:hover, a:focus {
-  text-decoration: underline;
-  color: #1a5b8a;
-}
-
-nav a {
-  color: #268bd2;
-}
-
-nav a.current {
-  color: white;
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,62 +31,46 @@ h1, h2, h3, h4, h5, h6 {
   color: #313131;
   text-rendering: optimizeLegibility;
 }
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-strong {
-  color: #303030;
-}
-
-ul, ol, dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-bottom: 0.5rem;
-}
-
-code,
-pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
-}
-
-code {
-  padding: 0.25em 0.5em;
-  font-size: 85%;
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  background-color: #f9f9f9;
-}
-pre code {
-  padding: 0;
-  font-size: 100%;
-  color: inherit;
-  background-color: transparent;
+@media (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2em;
+  }
 }
 
 blockquote {
-  padding: 0.5rem 1rem;
-  margin: 0.8rem 0;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  font-style: italic;
   color: #7a7a7a;
-  border-left: 0.25rem solid #e5e5e5;
+  border-left: 4px solid #e5e5e5;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  position: relative;
 }
-blockquote p:last-child {
-  margin-bottom: 0;
+blockquote::before, blockquote::after {
+  font-size: 2.4rem;
+  opacity: 0.3;
+  color: #7a7a7a;
+}
+blockquote::before {
+  content: "“";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+blockquote::after {
+  content: "”";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+@media (max-width: 768px) {
+  blockquote {
+    padding: 1rem 1.5rem;
+  }
+  blockquote::before, blockquote::after {
+    font-size: 2rem;
+  }
 }
 
 img {
@@ -109,40 +88,22 @@ table {
 }
 table td,
 table th {
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #e5e5e5;
+  padding: 0.5rem 0.75rem;
 }
-table tr:nth-child(odd) td,
-table tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
-
-.container {
-  max-width: 38rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+@media (max-width: 768px) {
+  table td, table th {
+    padding: 0.4rem;
+    font-size: 0.9em;
+  }
 }
 
-.masthead {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
+a {
+  color: #268bd2;
+  text-decoration: none;
 }
-.masthead .masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-}
-.masthead .masthead-title a {
-  color: #505050;
-}
-.masthead .masthead-title small {
-  color: #C0C0C0;
-  font-size: 75%;
-  font-weight: 400;
-  letter-spacing: 0;
+a:hover, a:focus {
+  text-decoration: underline;
+  color: #1a5b8a;
 }
 
 .post {
@@ -150,20 +111,78 @@ table tr:nth-child(odd) th {
 }
 .post .post-title {
   margin-top: 0;
+  font-size: 1.5em;
+}
+@media (max-width: 768px) {
+  .post .post-title {
+    font-size: 1.25em;
+  }
 }
 .post .post-date {
   display: block;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .post .post-date {
+    font-size: 0.9em;
+  }
 }
 
-.post-title,
-.post-title a {
-  color: #303030;
+ul, ol, dl, p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-.post-date {
-  color: #9a9a9a;
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #268bd2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  border-radius: 8px;
+}
+nav .nav-item {
+  margin: 0;
+  flex-grow: 0;
+  text-align: center;
+}
+nav .nav-item a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  display: inline-block;
+}
+nav .nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+nav .nav-item a.current {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1em;
+    font-size: 3.5em;
+  }
+  nav .nav-item {
+    margin: 0.5em 0;
+    font-size: 3.5em;
+  }
+  nav .nav-item a {
+    padding: 1em 1.5em;
+  }
+}
+body {
+  padding-top: 6em;
 }
 
 /*# sourceMappingURL=styles.css.map */

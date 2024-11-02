@@ -2,11 +2,11 @@
   link: /
 - name: Me
   link: /about.html
-- name: Activity
+- name: Feed
   link: /blog.html
-- name: Favourites
-  link: /favourites.html
 - name: Projects
   link: /projects.html
 - name: VU
   link: /vu.html
+- name: Favs
+  link: /favourites.html

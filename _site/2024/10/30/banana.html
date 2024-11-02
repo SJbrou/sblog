@@ -1,40 +1,97 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Banana - </title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-  </head>
-  <body>
+    <style>
+        /* Basic reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure body takes full height */
+}
+
+/* Flexbox container to push footer to the bottom */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make container at least full height of viewport */
+}
+
+/* Content area takes remaining space */
+#content {
+    flex: 1; /* Allow content to grow and fill available space */
+    padding-bottom: 2em; /* Space for footer */
+}
+
+/* Footer styling */
+#footer {
+    background-color: #f6f6f600; /* Tinted grey background */
+    border-radius: 8px;
+    margin-top: auto; /* Push footer to the bottom of the container */
+    margin-bottom: 2em; /* Space between footer and bottom of page */
+    padding: 1em; /* Add some padding */
+    text-align: center; /* Center text */
+    color: #969696; /* Text color */
+}
+
+/* Footer content for better alignment */
+.footer-content {
+    max-width: 800px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the content */
+}
+
+/* Footer title styling */
+.footer-title {
+    margin-bottom: 0.5em; /* Space between the title and the list */
+    font-size: 1em; /* Increase size for emphasis */
+}
+
+/* Footer list styling */
+.footer-list {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Reset padding */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center items horizontally */
+    margin: 0; /* Reset margin */
+}
+
+.footer-list li {
+    margin: 0 1em; /* Add horizontal spacing between items */
+}
+
+.footer-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Keep link color consistent with footer text */
+    position: relative; /* For hover effect */
+}
+
+/* Hover effect */
+.footer-list a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Adjust distance from text */
+    width: 0;
+    height: 2px;
+    background: #969696; /* Underline color */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.footer-list a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+    </style>
+</head>
+<body>
     <div class="container">
-      <header class="masthead">
-        <h3 class="masthead-title">
-          <style>
-nav {
-  display: flex;
-  justify-content: space-between; /* Creates equal spacing between items */
-  align-items: center;
-  width: 100%;
-  padding: 0.5em 0;
-}
-
-.nav-item {
-  flex-grow: 1; /* Each item takes equal width space based on available space */
-  text-align: center;
-}
-
-nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-nav a.current {
-  color: white;
-  font-weight: bold;
-}
-
-</style>
-
+        <header class="masthead">
+            <h3 class="masthead-title">
+                <link rel="stylesheet" href="/assets/css/styles.css">
 <nav>
   
     <span class="nav-item">
@@ -46,11 +103,7 @@ nav a.current {
     </span>
   
     <span class="nav-item">
-      <a href="/blog.html">Activity</a>
-    </span>
-  
-    <span class="nav-item">
-      <a href="/favourites.html">Favourites</a>
+      <a href="/blog.html">Feed</a>
     </span>
   
     <span class="nav-item">
@@ -61,14 +114,20 @@ nav a.current {
       <a href="/vu.html">VU</a>
     </span>
   
+    <span class="nav-item">
+      <a href="/favourites.html">Favs</a>
+    </span>
+  
 </nav>
 
+<script src="/assets/js/navbar.js"></script>
 
-        </h3>
-      </header>
 
-      <div id="content">
-        <article class='post'>
+            </h3>
+        </header>
+
+        <div id="content">
+            <article class='post'>
     <h1 class='post-title'>Banana</h1>
     <div class="post-date">Oct 30, 2024</div>
     <p>A banana is an edible fruit – botanically a berry – produced by several
@@ -81,7 +140,27 @@ flesh rich in starch covered with a rind, which may be green, yellow,
 red, purple, or brown when ripe.</p>
 
 </article>
-      </div>
-    </div>
-  </body>
+        </div>
+        </div>
+
+
+<!-- Footer -->
+<div id="footer">
+  <div class="footer-content">
+      <p class="footer-title"> Stan Brouwer 2024</p>
+      <ul class="footer-list">
+          <li>
+              <a href="#">Report a bug  </a>
+          </li>
+          <li>
+              <a href="#">Reach out to me</a>
+          </li>
+          <li>
+              <a href="#">View source code</a>
+          </li>
+      </ul>
+  </div>
+</div>
+<!--footer -->
+</body>
 </html>

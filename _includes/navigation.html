@@ -1,29 +1,4 @@
-<style>
-nav {
-  display: flex;
-  justify-content: space-between; /* Creates equal spacing between items */
-  align-items: center;
-  width: 100%;
-  padding: 0.5em 0;
-}
-
-.nav-item {
-  flex-grow: 1; /* Each item takes equal width space based on available space */
-  text-align: center;
-}
-
-nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-nav a.current {
-  color: white;
-  font-weight: bold;
-}
-
-</style>
-
+<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 <nav>
   {% for item in site.data.navigation %}
     <span class="nav-item">
@@ -31,4 +6,6 @@ nav a.current {
     </span>
   {% endfor %}
 </nav>
+
+<script src="{{ '/assets/js/navbar.js' | relative_url }}"></script>
 

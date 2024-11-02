@@ -2,6 +2,12 @@
 layout: default
 title: Home
 ---
+asd
+
+
+<blockquote> Just a sample quote<br>
+can be quite a hassle i see</blockquote>
+
 
 Currated by <a href="/about.html">me</a>. A collection of my thougths and resources I'd like to come back to. Hopefully you do to!  
 

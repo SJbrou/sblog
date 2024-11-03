@@ -2,7 +2,12 @@
 layout: default
 title: Home
 ---
-asd
+
+<blockquote>Why would anyone do this?</blockquote>
+
+Lately I feel drawn to writing to order and explore my thoughts. Journalling had to little skin in the game 
+
+Screens are incredible and powerfull. 
 
 
 <blockquote> Just a sample quote<br>
@@ -13,7 +18,7 @@ Currated by <a href="/about.html">me</a>. A collection of my thougths and resour
 
 <br>
 
-This blog is <a href="https://github.com/SJbrou/sblog">open source</a>. See an error? Please go ahead and propose a change on <a href="https://github.com/SJbrou/sblog/issues">github issues</a> or <a href="mailto:sjbrou@gmail.com"> email.
+This blog is <a href="https://github.com/SJbrou/sblog">open source</a>. See an error? Please let me know on your usual manner or reach out to me on <a href="https://github.com/SJbrou/sblog/issues">github issues</a> 
 
 <br>
 

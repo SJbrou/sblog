@@ -31,9 +31,6 @@ I help companies with their analytics<br>
 My fun facts<br>
 - I once biked to Paris and Rome
 - My nickname used to be "The Fridginator"
-- 
 
 <br>
-
-This blog is <a href="https://github.com/SJbrou/sblog">open source</a>. See an error? Please go ahead and propose a change on <a href="https://github.com/SJbrou/sblog/issues">github issues</a> or <a href="mailto:sjbrou@gmail.com"> email.
  

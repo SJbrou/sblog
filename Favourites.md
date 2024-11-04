@@ -22,3 +22,9 @@ Some of my favourite resources, all neatly ordered.
 
 
 ## To read
+
+
+
+## VU
+<a href="https://lausta.notion.site/CS-Hub-6e7cae889f844cb59ae5f1809c88e553">CS Hub</a>
+<a href="https://vu.brunet.app/exams/">Brunet</a> collection of exams

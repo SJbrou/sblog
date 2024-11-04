@@ -9,7 +9,7 @@ I am a human. I like to read books, working out on early mornings with my frieds
 <br>
 
 Please <a href="mailto:sjbrou@gmail.com">email</a> me if you like.  
-I'm available and happy to talk with you; I'd love to receive a message due to this project so just send me your thoughs!
+I'm available and happy to talk with you. Just send me your thoughs!
 <br>
 
 I like teaching.<br>

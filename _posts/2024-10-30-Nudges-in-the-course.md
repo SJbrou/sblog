@@ -3,12 +3,16 @@ layout: post
 author: Stan Brouwer
 title: Nudges in the course
 categories: ['VU']
-tags: ['Nudge']
+published: true
 ---
+
 Essay: Practicing what you preach: Nudges in the Nudge course.
 best educational design practices in higher education
 <!--excerpt -->
+
 <br>
+
+- Could you do me a favour and please give me an hypothesis:
 
 During "Nudge: Influencing Behaviour" I was so impressed by the dedactic and pedagogic level that it bleaked my experience of other courses. 
 I was impressed by the high  pedagogic and dedactic level of the "Nudge: Influencing Behaviour" course. So much so that it bleaked performances of my other lecturers. Lets dive into the best practices deployed throughout the course

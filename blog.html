@@ -1,16 +1,25 @@
 ---
 layout: default
-title: Blog
+title: Feed
 ---
-<h1>What I've been up to</h1>
 
-<ul>
+<div class="post-list">
   {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-      {{ post.excerpt }}
-    </li>
+    <div class="post-item">
+      <div class="post-title">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </div>
+      <div class="post-date-category">
+        <span class="post-date">{{ post.date | date: "%m-%d" }}</span>
+          <span class="post-category">#{{ post.categories[0] }}</span>
+      </div>
+      <div class="post-excerpt">
+        {% if post.excerpt %}
+          {{ post.excerpt | truncatewords: 30 }}
+        {% else %}
+          {{ post.content | truncatewords: 30 }}
+        {% endif %}
+      </div>
+    </div>
   {% endfor %}
-</ul>
-
-
+</div>

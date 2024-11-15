@@ -127,107 +127,48 @@ body, html {
         </header>
 
         <div id="content">
-            <div><h2>My projects</h2><p>Personal project collection</p>
+            <div class="container">
+    <h2>My projects</h2> <!-- Specific title -->
+    <div class="page-content">
+      <p>some text</p>
+     <!-- Specific page content -->
+    </div>
+  
+    <div class="post-list">
+      
+        
+      
+        
+      
+        
+          <!-- Only display posts if category_filter is empty (no filtering) or if post contains the specified category -->
+          <div class="post-item">
+            <div class="post-title">
+              <a href="/projects/2024/10/28/Site-todo.html">Site todo</a>
+            </div>
+            <div class="post-date-category">
+              <span class="post-date">10-28</span>
+              
+                <span class="post-category">#projects</span>
+              
+            </div>
+              
+            <div class="post-excerpt">
+              <p>Development wishlist
+<!--excerpt--></p>
 
-
-    <!-- A list of tags to show up at the top of the page -->
-    <ul style="list-style-type: none">
+            </div>
+              
+          </div>
         
+      
         
-            
+      
         
-            
-        
-            
-        
-            
-        
-              <!-- Use the variable -->
-                
-                    
-                        <li><a href="#site">site</a></li>
-                        
-                    
-                
-            
-        
-            
-        
-            
-        
-        <li><a href="#unsorted">Unsorted</a></li> <!-- "Other" link added here -->
-    </ul>
-    
-    <!-- Display posts sorted by tag with the category_filter category -->
-    
-    
-        
-    
-        
-    
-        
-    
-        
-    
-          <!-- Use the variable -->
-            
-                
-                    <h2 id="site">site</h2>
-                    
-                
-            
-            
-            <ul style="list-style-type: none">
-                <li>
-                    <h3>
-                        <a href="/projects/2024/10/28/Site-todo.html">
-                            Site todo
-                        </a>
-                    </h3>
-                    <span>28 October 2024</span>
-                    <style>
-li {
-  display: flex;
-  justify-content: space-between;
-}
-.changelog_date {
-  margin-left: auto;
-  text-align: right;
-  font-family: Menlo, Monaco, "Courier New", monospace; /* Technical font */
-  font-size: 0.9em; /* Slightly smaller font size, about 1px smaller */
-}
-</style>
-
-                </li>
-            </ul>
-        
-    
-        
-    
-        
-    
-
-    <!-- "Other" Section: Show all untagged posts with category_filter category -->
-    <h2 id="unsorted">Unsorted</h2>
-    <ul style="list-style-type: none">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </ul>
-</div>
-
+      
+    </div>
+  </div>
+  
         </div>
         </div>
 

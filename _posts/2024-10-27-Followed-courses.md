@@ -3,8 +3,12 @@ layout: post
 author: Stan Brouwer
 title: Followed courses
 categories: ['VU']
-tags:
+published: true
 ---
+
+List of courses I followed at Vrije Universiteit Amsterdam.  
+<!--excerpt-->
+
 
 <style>
 li {
@@ -20,8 +24,6 @@ li {
 
 </style>
 
-List of courses I followed at Vrije Universiteit Amsterdam.  
-<!--excerpt-->
 Each course corresponds to 6 <a href="https://education.ec.europa.eu/education-levels/higher-education/inclusive-and-connected-higher-education/european-credit-transfer-and-accumulation-system">ECTS</a>. A full year of university education is equal to 60 <a href="https://education.ec.europa.eu/education-levels/higher-education/inclusive-and-connected-higher-education/european-credit-transfer-and-accumulation-system">ECTS</a>. 
 
 Last updated: 31-10-2024

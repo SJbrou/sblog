@@ -12,4 +12,7 @@ paths:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+
   excerpt_separator: "<!--excerpt-->"
+
+  paginate: 0  # Disable pagination to show all posts

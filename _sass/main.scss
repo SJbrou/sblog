@@ -221,6 +221,55 @@ nav {
   }
 }
 
+
+// POST FEED
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.post-date {
+  color: #777;
+  font-size: 0.875rem;
+  margin-bottom: 15px;
+}
+
+.post-excerpt {
+  color: #333;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-category {
+  color: #777;
+  font-size: 0.875rem;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+
+
+
+
+
+
+
+
 // Mobile adjustments for navbar
 @media (max-width: 768px) {
   nav {

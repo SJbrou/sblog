@@ -1,18 +1,21 @@
-
-url: "https://username.github.io"
+url: "https://sjbrou.github.io"
 baseurl: "/sblog"  # Project site base URL
+highlighter: rouge
+rouge_theme: monokai  # Try 'monokai', 'github', or 'solarized-dark' if you want something else
+
 paths:
   css: "/assets/css"
   js: "/assets/js"
-  images: "/assets/images"collections:
-  authors:
+  images: "/assets/images"
 
-  plugins:
+collections:
+  authors: []
+
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
+excerpt_separator: "<!--excerpt-->"
 
-  excerpt_separator: "<!--excerpt-->"
-
-  paginate: 0  # Disable pagination to show all posts
+paginate: 0  # Disable pagination to show all posts

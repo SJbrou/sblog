@@ -103,7 +103,7 @@ a {
 }
 a:hover, a:focus {
   text-decoration: underline;
-  color: #1a5b8a;
+  color: rgb(60, 161, 212);
 }
 
 .post {
@@ -133,39 +133,6 @@ a:hover, a:focus {
 ul, ol, dl, p {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-nav {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #268bd2;
-  color: white;
-  display: flex;
-  justify-content: center;
-  z-index: 1000;
-  transition: top 0.3s ease;
-  border-radius: 8px;
-}
-nav .nav-item {
-  margin: 0;
-  flex-grow: 0;
-  text-align: center;
-}
-nav .nav-item a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5em 1em;
-  border-radius: 4px;
-  display: inline-block;
-}
-nav .nav-item a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-nav .nav-item a.current {
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .container {
@@ -206,21 +173,302 @@ nav .nav-item a.current {
   margin-left: 15px;
 }
 
+/* Flexbox container to push footer to the bottom */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make container at least full height of viewport */
+}
+
+/* Content area takes remaining space */
+#content {
+  flex: 1; /* Allow content to grow and fill available space */
+  padding-bottom: 2em; /* Space for footer */
+  padding: 2em;
+}
+
+/* Footer styling */
+#footer {
+  background-color: rgba(246, 246, 246, 0); /* Tinted grey background */
+  border-radius: 8px;
+  margin-top: auto; /* Push footer to the bottom of the container */
+  margin-bottom: 2em; /* Space between footer and bottom of page */
+  padding: 1em; /* Add some padding */
+  text-align: center; /* Center text */
+  color: #969696; /* Text color */
+}
+
+/* Footer content for better alignment */
+.footer-content {
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the content */
+}
+
+/* Footer title styling */
+.footer-title {
+  margin-bottom: 0.5em; /* Space between the title and the list */
+  font-size: 1em; /* Increase size for emphasis */
+}
+
+/* Footer list styling */
+.footer-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Reset padding */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  margin: 0; /* Reset margin */
+}
+
+.footer-list li {
+  margin: 0 1em; /* Add horizontal spacing between items */
+}
+
+.footer-list a {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Keep link color consistent with footer text */
+  position: relative; /* For hover effect */
+}
+
+/* Hover effect */
+.footer-list a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px; /* Adjust distance from text */
+  width: 0;
+  height: 2px;
+  background: #969696; /* Underline color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.footer-list a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* General Style for Code Blocks */
+pre {
+  position: relative;
+  background: #eeeeee; /* Light gray background */
+  color: #303030; /* Default text color */
+  padding: 1.5vw;
+  border-radius: 8px;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow-x: auto; /* Allow horizontal scrolling for long lines */
+  white-space: pre-wrap; /* Break long lines */
+  margin-bottom: 20px; /* Space after code block */
+}
+
+/* Style for the copy button */
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #268bd2; /* Match link color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.copy-btn:hover {
+  background-color: #1a5b8a; /* Slightly darker blue for hover */
+}
+
+.copy-btn:focus {
+  outline: none; /* Remove outline when button is focused */
+}
+
+.copy-btn.copied {
+  background-color: #7a9a51; /* Soft green tint to show success */
+}
+
+/* Syntax Highlighting for VSCode Colors */
+.token.comment, .token.comment .punctuation {
+  color: #6a9955; /* Comments in green */
+}
+
+.token.keyword {
+  color: #4b8cc0; /* Keywords like def, return in blue */
+}
+
+.token.boolean, .token.constant {
+  color: #4b8cc0; /* Booleans (True, False) and None in blue */
+}
+
+.token.function {
+  color: #d358cd; /* Function names in magenta */
+}
+
+.token.string {
+  color: #ce9178; /* Strings in orange */
+}
+
+.token.number {
+  color: #74a05d; /* Numbers in light green */
+}
+
+.token.operator {
+  color: #d16969; /* Operators (e.g., =, +) in red */
+}
+
+.token.identifier {
+  color: #9cdcfe; /* Identifiers in light blue */
+}
+
+/* Highlight Brackets and Parentheses */
+.token.bracket, .token.parenthesis {
+  color: #c586c0; /* Brackets and parentheses in purple */
+}
+
+/* Other Punctuation */
+.token.punctuation {
+  color: #303030; /* Default text color for other punctuation */
+}
+
+/* Optional: Highlight Square Brackets and Curly Braces Differently */
+.token.square-bracket {
+  color: #eee72a;
+}
+
+.token.curly-brace {
+  color: #c586c0; /* Purple for curly braces */
+}
+
+/* Navbar - Desktop */
+nav {
+  width: auto; /* Make the navbar width fit the content */
+  position: fixed; /* Keeps the navbar fixed at the top of the viewport */
+  top: 20px; /* Adds space between the top of the page and the navbar */
+  left: 50%; /* Centers it horizontally */
+  transform: translateX(-50%); /* Offsets it to center */
+  background-color: #268bd2; /* Background color for navbar */
+  color: white; /* Text color for all items within navbar */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items within the navbar */
+  z-index: 1000; /* Ensure navbar stays above other content */
+  transition: top 0.3s ease; /* Smooth transition for scroll effect */
+  border-radius: 8px; /* Round all corners of the navbar */
+}
+
+/* Adjusting nav-item and link styles */
+nav .nav-item {
+  flex-grow: 0; /* Prevent items from growing */
+  text-align: center; /* Center-align text within nav items */
+}
+
+nav .nav-item a {
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  padding: 0.5em 1em; /* Add padding for clickable area */
+  border-radius: 4px; /* Slightly round edges */
+  display: inline-block; /* Make the anchor an inline-block for better width control */
+  font-size: 1.4rem; /* Standard font size for desktop */
+}
+nav .nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+nav .nav-item a.current {
+  font-weight: bold; /* Bold text for the current page */
+  background-color: rgba(255, 255, 255, 0.3); /* Different background for current link */
+}
+
+/* Navbar - Desktop */
+nav {
+  width: auto; /* Make the navbar width fit the content */
+  position: fixed; /* Keeps the navbar fixed at the top of the viewport */
+  top: 20px; /* Adds space between the top of the page and the navbar */
+  left: 50%; /* Centers it horizontally */
+  transform: translateX(-50%); /* Offsets it to center */
+  background-color: #268bd2; /* Background color for navbar */
+  color: white; /* Text color for all items within navbar */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items within the navbar */
+  z-index: 1000; /* Ensure navbar stays above other content */
+  transition: top 0.3s ease; /* Smooth transition for scroll effect */
+  border-radius: 8px; /* Round all corners of the navbar */
+}
+
+/* Adjusting nav-item and link styles */
+nav .nav-item {
+  flex-grow: 0; /* Prevent items from growing */
+  text-align: center; /* Center-align text within nav items */
+}
+
+nav .nav-item a {
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  padding: 0.5em 1em; /* Add padding for clickable area */
+  border-radius: 4px; /* Slightly round edges */
+  display: inline-block; /* Make the anchor an inline-block for better width control */
+  font-size: 1.4rem; /* Standard font size for desktop */
+  transition: background-color 0.3s ease; /* Smooth background change on hover */
+}
+nav .nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+nav .nav-item a.current {
+  font-weight: bold; /* Bold text for the current page */
+  background-color: rgba(255, 255, 255, 0.3); /* Different background for current link */
+}
+
+/* Navbar - Mobile */
 @media (max-width: 768px) {
   nav {
-    padding: 1em;
-    font-size: 3.5em;
+    width: 95%; /* Navbar takes up 95% of the screen width */
+    left: 2.5%; /* Center navbar with a small margin */
+    transform: none; /* No centering offset */
+    top: 2.5%; /* Small margin from the top */
+    background-color: #268bd2; /* Navbar background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 6px; /* Slightly rounded corners */
+    z-index: 1000; /* Ensure navbar stays on top */
+    text-align: center; /* Center items */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center navbar items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    transition: top 0.3s ease; /* Smooth transition for position */
   }
-  nav .nav-item {
-    margin: 0.5em 0;
-    font-size: 3.5em;
+  /* Navbar items */
+  .nav-item {
+    text-align: center; /* Center text within each nav item */
+    width: auto; /* Let the item width adjust naturally */
+    flex-grow: 1; /* Allow each item to grow and fill available space */
+    flex-shrink: 1; /* Allow each item to shrink to fit if necessary */
+    max-width: 120px; /* Reduce max width to ensure they fit */
+    margin: 5px; /* Small margin between items */
+    font-size: 14px; /* Smaller font size for better fit */
   }
-  nav .nav-item a {
-    padding: 1em 1.5em;
+  /* Links inside nav items */
+  .nav-item a {
+    display: inline-block; /* Links span full width of their container */
+    text-align: center; /* Center text inside the links */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    border-radius: 4px; /* Slight rounding for the links */
+    transition: background-color 0.3s ease; /* Smooth background change on hover */
+    padding: 8px 12px; /* Adjust padding to fit text better */
+    font-size: 14px; /* Adjust font size for better fit */
+  }
+  /* Hover effect for links */
+  .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slight background color on hover */
+  }
+  /* Current page link highlighting */
+  .nav-item a.current {
+    background-color: rgba(255, 255, 255, 0.3); /* Highlight the current page */
+    font-weight: bold; /* Make current page bold */
   }
 }
+/* Adjust padding for content below navbar */
 body {
-  padding-top: 6em;
+  padding-top: 5em; /* Adjust the body padding to match the smaller navbar gap */
 }
 
 /*# sourceMappingURL=styles.css.map */

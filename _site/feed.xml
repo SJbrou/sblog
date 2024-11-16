@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-15T21:49:17+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html"><![CDATA[<p>Why Universities have no incentive to teach well
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-16T23:54:47+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Export HEIC with “created” tag</title><link href="http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata.html" rel="alternate" type="text/html" title="Export HEIC with “created” tag" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata.html"><![CDATA[<p>Using python to export apple HEIC images to jpg with their original “created” date<br />
+<!-- excerpt --></p>
+
+<p>Relatives asked me to help with their photo backups.<br />
+Their iPhone photos were in .HEIC format, which they couldn’t view. Exporting to jpg from the photos app overwrote the “Created” date and thus broke their sorting. (Maybe sort on “<em>Content Created</em>” date?).</p>
+
+<p>After trying everything, they decided to ask the <em>“computer”</em> guy for help (me).</p>
+
+<p>Luckily, photos have metadata, which we can manipulate in Python.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="n">pillow_heif</span>
+<span class="kn">import</span> <span class="n">piexif</span>
+<span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">ExifTags</span>
+
+<span class="n">pillow_heif</span><span class="p">.</span><span class="nf">register_heif_opener</span><span class="p">()</span>
+
+<span class="c1"># Input and output directories
+</span><span class="n">from_directory</span> <span class="o">=</span> <span class="sh">"</span><span class="s">from</span><span class="sh">"</span>
+<span class="n">to_directory</span> <span class="o">=</span> <span class="sh">"</span><span class="s">to</span><span class="sh">"</span>
+
+<span class="c1"># Ensure they exists
+</span><span class="n">os</span><span class="p">.</span><span class="nf">makedirs</span><span class="p">(</span><span class="n">to_directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Function extract EXIF DateTime or ContentCreated
+</span><span class="k">def</span> <span class="nf">extract_datetime_or_created</span><span class="p">(</span><span class="n">exif_data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">exif_data</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">tag_id</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">exif_data</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+            <span class="n">tag_name</span> <span class="o">=</span> <span class="n">ExifTags</span><span class="p">.</span><span class="n">TAGS</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">tag_id</span><span class="p">,</span> <span class="n">tag_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="sh">'</span><span class="s">DateTime</span><span class="sh">'</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">value</span>
+            <span class="k">if</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="sh">'</span><span class="s">ContentCreated</span><span class="sh">'</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="c1"># Process all HEIC files in "from""
+</span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="nf">listdir</span><span class="p">(</span><span class="n">from_directory</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">.</span><span class="nf">lower</span><span class="p">().</span><span class="nf">endswith</span><span class="p">(</span><span class="sh">"</span><span class="s">.heic</span><span class="sh">"</span><span class="p">):</span>
+        <span class="n">heic_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">from_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">heic_file_path</span><span class="p">)</span>
+            <span class="n">exif_data</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">getexif</span><span class="p">()</span> <span class="c1"># Extract EXIF, use DateTime/ContentCreated
+</span>            <span class="n">content_created_str</span> <span class="o">=</span> <span class="nf">extract_datetime_or_created</span><span class="p">(</span><span class="n">exif_data</span><span class="p">)</span>
+            <span class="n">jpeg_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">to_directory</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">.jpg</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># Convert to JPEG
+</span>            <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">convert</span><span class="p">(</span><span class="sh">"</span><span class="s">RGB</span><span class="sh">"</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">content_created_str</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">content_created_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="n">content_created_str</span><span class="p">,</span> <span class="sh">"</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
+                    <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="n">content_created_datetime</span><span class="p">.</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">"</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+                    <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="n">content_created_str</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="bp">None</span>
+
+            <span class="c1"># If valid ContentCreated/DateTime, overwrite EXIF
+</span>            <span class="n">exif_dict</span> <span class="o">=</span> <span class="n">piexif</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">exif</span><span class="sh">"</span><span class="p">,</span> <span class="sa">b</span><span class="sh">""</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">exif_timestamp</span><span class="p">:</span>
+                <span class="c1"># Set DateTime (EXIF tag 0x9003 (DateTimeOriginal))
+</span>                <span class="n">exif_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">0th</span><span class="sh">'</span><span class="p">][</span><span class="n">piexif</span><span class="p">.</span><span class="n">ImageIFD</span><span class="p">.</span><span class="n">DateTime</span><span class="p">]</span> <span class="o">=</span> <span class="n">exif_timestamp</span>
+                <span class="n">exif_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">Exif</span><span class="sh">'</span><span class="p">][</span><span class="n">piexif</span><span class="p">.</span><span class="n">ExifIFD</span><span class="p">.</span><span class="n">DateTimeOriginal</span><span class="p">]</span> <span class="o">=</span> <span class="n">exif_timestamp</span>  <span class="c1"># Set DateTimeOriginal tag
+</span>
+            <span class="c1"># Convert EXIF dict to bytes
+</span>            <span class="n">exif_bytes</span> <span class="o">=</span> <span class="n">piexif</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">exif_dict</span><span class="p">)</span>
+
+            <span class="c1"># Save as JPEG
+</span>            <span class="n">img</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="n">jpeg_file_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">JPEG</span><span class="sh">"</span><span class="p">,</span> <span class="n">exif</span><span class="o">=</span><span class="n">exif_bytes</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Converted: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">jpeg_file_path</span><span class="si">}</span><span class="s"> (ContentCreated: </span><span class="si">{</span><span class="n">exif_timestamp</span><span class="si">}</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
+
+            
+            <span class="k">if</span> <span class="n">content_created_str</span><span class="p">:</span>
+                <span class="n">file_timestamp</span> <span class="o">=</span> <span class="n">content_created_datetime</span><span class="p">.</span><span class="nf">timestamp</span><span class="p">()</span>
+
+                <span class="c1"># Edit os creation and modification times
+</span>                <span class="n">os</span><span class="p">.</span><span class="nf">utime</span><span class="p">(</span><span class="n">jpeg_file_path</span><span class="p">,</span> <span class="p">(</span><span class="n">file_timestamp</span><span class="p">,</span> <span class="n">file_timestamp</span><span class="p">))</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Updated timestamps for </span><span class="si">{</span><span class="n">jpeg_file_path</span><span class="si">}</span><span class="s"> (Created/Modified: </span><span class="si">{</span><span class="n">exif_timestamp</span><span class="si">}</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Failed to process </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+
+<span class="sh">"""</span><span class="s">
+
+# Some code to inspect the metadata of HEIC files
+from PIL import Image
+import pillow_heif
+from PIL import ExifTags
+
+# Register HEIC support in Pillow
+pillow_heif.register_heif_opener()
+
+# Open the HEIC image file
+heic_file_path = </span><span class="sh">"</span><span class="s">path/file.HEIC</span><span class="sh">"</span><span class="s">
+img = Image.open(heic_file_path)
+
+# Show the image using the default viewer (Preview on macOS)
+img.show()
+
+# Extract EXIF data
+exif_data = img.getexif()
+
+if exif_data:
+    print(</span><span class="sh">"</span><span class="se">\n</span><span class="s">EXIF Data:</span><span class="sh">"</span><span class="s">)
+    for tag_id, value in exif_data.items():
+        tag_name = ExifTags.TAGS.get(tag_id, tag_id)  # Get the tag name from the ExifTags dictionary
+        print(f</span><span class="sh">"</span><span class="s">{tag_name}: {value}</span><span class="sh">"</span><span class="s">)
+else:
+    print(</span><span class="sh">"</span><span class="s">No EXIF data found.</span><span class="sh">"</span><span class="s">)
+</span><span class="sh">"""</span>
+</code></pre></div></div>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Using python to export apple HEIC images to jpg with their original “created” date]]></summary></entry><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html"><![CDATA[<p>Why Universities have no incentive to teach well
 <!--excerpt--></p>
 
 <p>During highschool I envisioned university to educational heaven. An although educuation generally improved, the didactic skills of my teachers did not. And professors are not to blame! they are generally evaluated on their research output, and teaching is just a mandatory nuissance. Thus, there are misaligned incentives from the students’ point of view.</p>

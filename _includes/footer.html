@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+
+<!-- Footer Content -->
+<div class="footer-content">
+  {% if page.footer %}
+  <div class="footer-separator">~  ~  ~</div>
+    <p class="custom-footer">{{ page.footer }}</p>
+  {% endif %}
+</div>
+
+<!-- Separator -->
+<div class="footer-separator">
+  <span class="rotated-symbol">§</span>
+  <span class="rotated-symbol">§</span>
+  <span class="rotated-symbol">§</span>
+</div>
+
+<!-- Footer Navigation -->
+<div class="footer-nav">
+  {% for item in site.data.navigation %}
+    <span class="footer-span">
+      <a href="{{ site.baseurl }}{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>{{ item.name }}</a>
+    </span>
+  {% endfor %}
+</div>

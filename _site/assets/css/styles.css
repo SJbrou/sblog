@@ -3,7 +3,7 @@
 @font-face {
   font-family: "FontOld"; /* Choose a custom name for your font */
   src: url("/assets/css/fontOld.woff2") format("woff2");
-  font-weight: 400;
+  font-weight: 100;
   font-style: normal;
   font-stretch: normal;
   font-display: swap;
@@ -29,6 +29,7 @@ body {
   font-size: var(--font-size, 1rem); /* Add default font size */
   font-family: var(--font-family, "FontOld");
   line-height: var(--line-height, 1.5);
+  padding-top: 1em;
 }
 
 /* Main container style */
@@ -47,6 +48,7 @@ body {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
+  font-size: 1.8em;
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: var(--heading-color);
@@ -135,10 +137,42 @@ ul, ol, dl, p {
   margin-bottom: 1rem;
 }
 
-/* Remove list item dots (default) for specific lists */
-ul, ol {
-  list-style-type: none; /* Remove bullets or dots */
-  padding-left: 0; /* Remove left padding for a clean list */
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f4f4f4;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.copy-button:hover {
+  background-color: rgb(203, 141, 59);
+}
+
+.copy-button:active {
+  background-color: rgb(200, 134, 46);
+}
+
+/* Apply default VSCode font to code blocks */
+/* Overwrite Prism font for code blocks */
+pre[class*=language-] {
+  font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
+  font-size: 0.6rem; /* Adjust to your preferred size */
+  line-height: 0.6rem; /* Adjust line height for better readability */
+  border-radius: 8px;
+}
+
+/* For inline code */
+code {
+  font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
+  background-color: #f4f4f4; /* Optional: Adds background for inline code */
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
 }
 
 /* Custom Feed Section */
@@ -148,8 +182,13 @@ ul, ol {
 }
 
 #feed h1 {
-  font-size: 1.5em;
   text-align: center;
+}
+
+/* Remove list item dots (default) for specific lists */
+#feed ul, #feed ol {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .year-separator, .month-separator {

@@ -2,7 +2,8 @@
 layout: post
 author: Stan Brouwer
 title: Portfolio introduction
-categories: ['VU']
+categories: ["VU"]
+permalink: /:categories/:year/:month/:day/:title
 published: true
 ---
 

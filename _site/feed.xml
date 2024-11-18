@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-17T21:36:50+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Export HEIC with “created” tag</title><link href="http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata.html" rel="alternate" type="text/html" title="Export HEIC with “created” tag" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/Export-HEIC-with-metadata.html"><![CDATA[<p>Using python to export apple HEIC images to jpg with their original “created” date<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-18T16:54:51+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">HEIC to JPG while keeping metadata</title><link href="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata" rel="alternate" type="text/html" title="HEIC to JPG while keeping metadata" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata"><![CDATA[<link rel="stylesheet" href="/assets/css/prism.css" />
+
+<script src="/assets/js/prism.js"></script>
+
+<p>Using python to export apple HEIC images to jpg with their original “created” date<br />
 <!-- excerpt --></p>
 
 <p>Relatives asked me to help with their photo backups.<br />
@@ -8,7 +12,8 @@ Their iPhone photos were in .HEIC format, which they couldn’t view. Exporting 
 
 <p>Luckily, photos have metadata, which we can manipulate in Python.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="n">os</span>
 <span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="n">pillow_heif</span>
@@ -111,7 +116,8 @@ if exif_data:
 else:
     print(</span><span class="sh">"</span><span class="s">No EXIF data found.</span><span class="sh">"</span><span class="s">)
 </span><span class="sh">"""</span>
-</code></pre></div></div>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Using python to export apple HEIC images to jpg with their original “created” date]]></summary></entry><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/31/Misaligned-incentives-in-university-education.html"><![CDATA[<p>Why Universities have no incentive to teach well
+
+</code></pre></div></div>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education"><![CDATA[<p>Why Universities have no incentive to teach well
 <!--excerpt--></p>
 
 <p>During highschool I envisioned university to educational heaven. An although educuation generally improved, the didactic skills of my teachers did not. And professors are not to blame! they are generally evaluated on their research output, and teaching is just a mandatory nuissance. Thus, there are misaligned incentives from the students’ point of view.</p>
@@ -120,7 +126,7 @@ else:
 
 <p>Becomming a lecturer at university generally is an academic path. Professors are required to</p>
 
-<p>https://nl.indeed.com/carrieregids/baan-vinden/hoe-word-je-hoogleraar</p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Why Universities have no incentive to teach well]]></summary></entry><entry><title type="html">Nudges in the course</title><link href="http://localhost:4000/vu/2024/10/30/Nudges-in-the-course.html" rel="alternate" type="text/html" title="Nudges in the course" /><published>2024-10-30T00:00:00+01:00</published><updated>2024-10-30T00:00:00+01:00</updated><id>http://localhost:4000/vu/2024/10/30/Nudges-in-the-course</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/30/Nudges-in-the-course.html"><![CDATA[<p>Essay: Practicing what you preach: Nudges in the Nudge course.
+<p>https://nl.indeed.com/carrieregids/baan-vinden/hoe-word-je-hoogleraar</p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Why Universities have no incentive to teach well]]></summary></entry><entry><title type="html">Nudges in the course</title><link href="http://localhost:4000/VU/2024/10/30/Nudges-in-the-course" rel="alternate" type="text/html" title="Nudges in the course" /><published>2024-10-30T00:00:00+01:00</published><updated>2024-10-30T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/30/Nudges-in-the-course</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/30/Nudges-in-the-course"><![CDATA[<p>Essay: Practicing what you preach: Nudges in the Nudge course.
 best educational design practices in higher education
 <!--excerpt --></p>
 
@@ -142,7 +148,7 @@ I was impressed by the high  pedagogic and dedactic level of the “Nudge: Influ
 
 <h2 id="personal-experience">Personal experience</h2>
 
-<h2 id="didact-devices">Didact devices</h2>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Essay: Practicing what you preach: Nudges in the Nudge course. best educational design practices in higher education]]></summary></entry><entry><title type="html">Site todo</title><link href="http://localhost:4000/projects/2024/10/28/Site-todo.html" rel="alternate" type="text/html" title="Site todo" /><published>2024-10-28T00:00:00+01:00</published><updated>2024-10-28T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/10/28/Site-todo</id><content type="html" xml:base="http://localhost:4000/projects/2024/10/28/Site-todo.html"><![CDATA[<p>Development wishlist
+<h2 id="didact-devices">Didact devices</h2>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Essay: Practicing what you preach: Nudges in the Nudge course. best educational design practices in higher education]]></summary></entry><entry><title type="html">Site todo</title><link href="http://localhost:4000/projects/2024/10/28/Site-todo" rel="alternate" type="text/html" title="Site todo" /><published>2024-10-28T00:00:00+01:00</published><updated>2024-10-28T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/10/28/Site-todo</id><content type="html" xml:base="http://localhost:4000/projects/2024/10/28/Site-todo"><![CDATA[<p>Development wishlist
 <!--excerpt--></p>
 
 <style>
@@ -173,7 +179,7 @@ li {
   <li>Started writing Essay on Nudge <span class="changelog_date">31-10-2024</span></li>
   <li>Started site development <span class="changelog_date">30-10-2024</span></li>
   <li>Learned about Jekyll <span class="changelog_date">30-10-2024</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Development wishlist]]></summary></entry><entry><title type="html">Followed courses</title><link href="http://localhost:4000/vu/2024/10/27/Followed-courses.html" rel="alternate" type="text/html" title="Followed courses" /><published>2024-10-27T00:00:00+02:00</published><updated>2024-10-27T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/27/Followed-courses</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/27/Followed-courses.html"><![CDATA[<p>List of courses I followed at Vrije Universiteit Amsterdam.<br />
+</ul>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Development wishlist]]></summary></entry><entry><title type="html">Followed courses</title><link href="http://localhost:4000/VU/2024/10/27/Followed-courses" rel="alternate" type="text/html" title="Followed courses" /><published>2024-10-27T00:00:00+02:00</published><updated>2024-10-27T00:00:00+02:00</updated><id>http://localhost:4000/VU/2024/10/27/Followed-courses</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/27/Followed-courses"><![CDATA[<p>List of courses I followed at Vrije Universiteit Amsterdam.<br />
 <!--excerpt--></p>
 
 <style>
@@ -248,7 +254,7 @@ li {
   <li>Big Data Tools <span class="course-code">(AB_1259)</span></li>
   <li>Databases <span class="course-code">(X_401008)</span></li>
   <li>Software Engineering Processes <span class="course-code">(XB_0089)</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[List of courses I followed at Vrije Universiteit Amsterdam.]]></summary></entry><entry><title type="html">Portfolio introduction</title><link href="http://localhost:4000/vu/2024/10/23/DTS-portfolio.html" rel="alternate" type="text/html" title="Portfolio introduction" /><published>2024-10-23T00:00:00+02:00</published><updated>2024-10-23T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/23/DTS-portfolio</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/23/DTS-portfolio.html"><![CDATA[<p>Introduction to the DTS portfolio assignment
+</ul>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[List of courses I followed at Vrije Universiteit Amsterdam.]]></summary></entry><entry><title type="html">Portfolio introduction</title><link href="http://localhost:4000/vu/2024/10/23/DTS-portfolio" rel="alternate" type="text/html" title="Portfolio introduction" /><published>2024-10-23T00:00:00+02:00</published><updated>2024-10-23T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/23/DTS-portfolio</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/23/DTS-portfolio"><![CDATA[<p>Introduction to the DTS portfolio assignment
 <!--excerpt --></p>
 
 <p><br /></p>
@@ -274,4 +280,4 @@ li {
 Unfortunately, this is going to be quite a pain:</p>
 
 <p><img src="/assets/dts/planned_courses.png" alt="Planned Courses" style="width:70%; border-radius:10px; background-color:#f0f0f0; padding:0.6rem; display:block; margin:1rem auto;" />
-<!-- https://heather-buchel.com/blog/2024/03/letters-to-an-accessibility-advocate/ --></p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Introduction to the DTS portfolio assignment]]></summary></entry></feed>
+<!-- https://heather-buchel.com/blog/2024/03/letters-to-an-accessibility-advocate/ --></p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Introduction to the DTS portfolio assignment]]></summary></entry><entry><title type="html">Hello world</title><link href="http://localhost:4000/2024/10/20/hello-world" rel="alternate" type="text/html" title="Hello world" /><published>2024-10-20T00:00:00+02:00</published><updated>2024-10-20T00:00:00+02:00</updated><id>http://localhost:4000/2024/10/20/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/10/20/hello-world"><![CDATA[<p>Wow! my first blog entry!</p>]]></content><author><name>Stan Brouwer</name></author><summary type="html"><![CDATA[Wow! my first blog entry!]]></summary></entry></feed>

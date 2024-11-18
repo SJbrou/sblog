@@ -2,7 +2,8 @@
 layout: post
 author: Stan Brouwer
 title: Followed courses
-categories: ['VU']
+permalink: /VU/:year/:month/:day/:title
+categories: "VU"  # Filter posts by "VU"
 published: true
 ---
 

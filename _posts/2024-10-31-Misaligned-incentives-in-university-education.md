@@ -2,7 +2,8 @@
 layout: post
 author: Stan Brouwer
 title: Misaligned incentives in university education
-categories: ['VU']
+permalink: /VU/:year/:month/:day/:title
+categories: "VU"  # Filter posts by "VU"
 published: true
 ---
 

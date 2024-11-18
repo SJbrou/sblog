@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Export HEIC with "created" tag - </title>
+  <title>HEIC to JPG while keeping metadata - </title>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,25 +14,27 @@
     <main>
       <article class="post">
   <header>
-    <h1>Export HEIC with "created" tag</h1>
-    <!-- Optional date -->
-    <!-- <time datetime="2024-11-16 00:00:00 +0100">November 16, 2024</time> -->
+    <h1>HEIC to JPG while keeping metadata</h1>
   </header>
 
   <!-- Optional Excerpt -->
   
     <section class="post-excerpt">
-      <p><p>Using python to export apple HEIC images to jpg with their original “created” date<br />
-<!-- excerpt --></p>
+      <p><link rel="stylesheet" href="/assets/css/prism.css" />
+
+<script src="/assets/js/prism.js"></script>
+
 </p>
     </section>
   
 
-  <!-- Main Content (Only if there is content) -->
+  <!-- Main Content -->
   
   
     <section class="content">
-      
+      <p>Using python to export apple HEIC images to jpg with their original “created” date<br />
+<!-- excerpt --></p>
+
 <p>Relatives asked me to help with their photo backups.<br />
 Their iPhone photos were in .HEIC format, which they couldn’t view. Exporting to jpg from the photos app overwrote the “Created” date and thus broke their sorting. (Maybe sort on “<em>Content Created</em>” date?).</p>
 
@@ -40,7 +42,8 @@ Their iPhone photos were in .HEIC format, which they couldn’t view. Exporting 
 
 <p>Luckily, photos have metadata, which we can manipulate in Python.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="n">os</span>
 <span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="n">pillow_heif</span>
@@ -143,172 +146,153 @@ if exif_data:
 else:
     print(</span><span class="sh">"</span><span class="s">No EXIF data found.</span><span class="sh">"</span><span class="s">)
 </span><span class="sh">"""</span>
+
 </code></pre></div></div>
 
     </section>
   
 </article>
 
-<!-- Include the blog feed from feed.html -->
+<!-- Feed / Related Thoughts Section -->
 <section id="feed">
-    <!-- Current Month's Posts -->
-    <!-- previously: [Month]'s Thoughts: <h1>November's Thoughts</h1> -->
-    <h1>Thoughts</h1>
+    <!-- Show "Related" if show-feed-title is true or not defined -->
+    
+      <h1>Related</h1>  <!-- Display "Related" if show-feed-title is true or undefined -->
+    
+  
     <ul>
-       <!-- Sort posts chronologically, newest first -->
+       <!-- Sort posts by date (newest first) -->
+  
       
       
+       <!-- Get the current year -->
+  
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
-          <div class="month-separator-space"></div> <!-- Empty space between months -->
-          <div class="month-separator">
-            <span>November</span>
-          </div>
+  
+        <!-- Show only related posts based on category -->
+        
+          
+          
+          
+            
+            <!-- Skip the current post itself -->
+            
+              
+        
+        
+  
+        <!-- For Post Pages: Filter posts for the same category -->
+        
+  
+        <!-- Show only related posts based on category -->
+        
+          
+          
           
         
-        
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/projects/2024/11/16/Export-HEIC-with-metadata.html">Export HEIC with "created" tag</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
-              
-               <!-- Convert the day to integer for logic -->
-              
-                16th
-                
-              
-            </span>
-          </div>
-        </li>
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
-          <div class="month-separator-space"></div> <!-- Empty space between months -->
-          <div class="month-separator">
-            <span>October</span>
-          </div>
+  
+        <!-- Show only related posts based on category -->
+        
+          
+          
           
         
-        
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/vu/2024/10/31/Misaligned-incentives-in-university-education.html">Misaligned incentives in university education</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
-              
-               <!-- Convert the day to integer for logic -->
-              
-                31th
-                
-              
-            </span>
-          </div>
-        </li>
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
+  
+        <!-- Show only related posts based on category -->
         
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/vu/2024/10/30/Nudges-in-the-course.html">Nudges in the course</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
+          
+          
+          
+            
+            <!-- Skip the current post itself -->
+            
+  
+            <!-- Display year separator if post year differs and is not the current year -->
+            
+  
+            <!-- Display month separator if post month differs -->
+            
+              <div class="month-separator-space"></div>
+              <div class="month-separator">
+                <span>October</span>
+              </div>
               
-               <!-- Convert the day to integer for logic -->
-              
-                30th
-                
-              
-            </span>
-          </div>
-        </li>
+            
+      
+            <li>
+              <div class="post-entry">
+                <span class="post-title"><a href="/projects/2024/10/28/Site-todo">Site todo</a></span>
+                <div class="post-separator"></div>
+                <span class="post-date">
+                  
+                  
+                  
+                    28th
+                    
+                  
+                </span>
+              </div>
+            </li>
+          
+        
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
+  
+        <!-- Show only related posts based on category -->
         
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/projects/2024/10/28/Site-todo.html">Site todo</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
-              
-               <!-- Convert the day to integer for logic -->
-              
-                28th
-                
-              
-            </span>
-          </div>
-        </li>
+          
+          
+          
+        
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
+  
+        <!-- Show only related posts based on category -->
         
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/vu/2024/10/27/Followed-courses.html">Followed courses</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
-              
-               <!-- Convert the day to integer for logic -->
-              
-                27th
-                
-              
-            </span>
-          </div>
-        </li>
+          
+          
+          
+        
       
         
         
-        <!-- Add space between months if we move to a new month -->
+  
+        <!-- For Post Pages: Filter posts for the same category -->
         
+  
+        <!-- Show only related posts based on category -->
         
-        <li>
-          <div class="post-entry">
-            <span class="post-title"><a href="/vu/2024/10/23/DTS-portfolio.html">Portfolio introduction</a></span>
-            <div class="post-separator"></div> <!-- Separator line between title and date -->
-            <span class="post-date">
-              
-               <!-- Convert the day to integer for logic -->
-              
-                23th
-                
-              
-            </span>
-          </div>
-        </li>
+          
+          
+          
+        
       
     </ul>
-  
-    <!-- Posts by Month and Year -->
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   </section>
   
 
@@ -316,7 +300,6 @@ else:
   </div>
 </body>
 </html>
-
 
 <link rel="stylesheet" href="/assets/css/styles.css">
 
@@ -336,23 +319,19 @@ else:
 <div class="footer-nav">
   
     <span class="footer-span">
-      <a href="/">Home</a>
+      <a href="/me.html">Me</a>
     </span>
   
     <span class="footer-span">
-      <a href="/about.html">Me</a>
+      <a href="/">Thoughts</a>
     </span>
   
     <span class="footer-span">
-      <a href="/blog.html">Feed</a>
+      <a href="/projects">Projects</a>
     </span>
   
     <span class="footer-span">
-      <a href="/projects.html">Projects</a>
-    </span>
-  
-    <span class="footer-span">
-      <a href="/vu.html">VU</a>
+      <a href="/vu">VU</a>
     </span>
   
     <span class="footer-span">

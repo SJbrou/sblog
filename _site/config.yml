@@ -1,7 +1,5 @@
 url: "https://sjbrou.github.io"
 baseurl: "/sblog"  # Project site base URL
-highlighter: rouge
-rouge_theme: monokai  # Try 'monokai', 'github', or 'solarized-dark' if you want something else
 
 paths:
   css: "/assets/css"

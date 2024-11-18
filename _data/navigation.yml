@@ -1,12 +1,10 @@
-- name: Home
-  link: /
 - name: Me
-  link: /about.html
-- name: Feed
-  link: /blog.html
+  link: /me.html
+- name: Thoughts
+  link: /
 - name: Projects
-  link: /projects.html
+  link: /projects
 - name: VU
-  link: /vu.html
+  link: /vu
 - name: Favs
   link: /favourites.html

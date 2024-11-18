@@ -4,8 +4,6 @@ layout: default
 <article class="post">
   <header>
     <h1>{{ page.title }}</h1>
-    <!-- Optional date -->
-    <!-- <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time> -->
   </header>
 
   <!-- Optional Excerpt -->
@@ -15,7 +13,7 @@ layout: default
     </section>
   {% endif %}
 
-  <!-- Main Content (Only if there is content) -->
+  <!-- Main Content -->
   {% assign main_content = page.content | remove: page.excerpt %}
   {% if main_content != "" %}
     <section class="content">
@@ -24,5 +22,5 @@ layout: default
   {% endif %}
 </article>
 
-<!-- Include the blog feed from feed.html -->
-{% include feed.html %}
+<!-- Feed / Related Thoughts Section -->
+{% include feed.html categories=page.categories %}

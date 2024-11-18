@@ -1,10 +1,15 @@
 ---
 layout: post
 author: Stan Brouwer
-title: Export HEIC with "created" tag
-categories: ['projects']
+title: HEIC to JPG while keeping metadata
+permalink: /projects/:year/:month/:day/:title
+categories: "projects"  # Filter posts by "projects"
 published: true
 ---
+
+<link rel="stylesheet" href="/assets/css/prism.css">
+<script src="/assets/js/prism.js"></script>
+
 
 Using python to export apple HEIC images to jpg with their original "created" date  
 <!-- excerpt -->
@@ -17,8 +22,8 @@ After trying everything, they decided to ask the *"computer"* guy for help (me).
 Luckily, photos have metadata, which we can manipulate in Python.
 
 
-
 ```python
+
 import os
 from datetime import datetime
 from PIL import Image
@@ -122,4 +127,5 @@ if exif_data:
 else:
     print("No EXIF data found.")
 """
+
 ```

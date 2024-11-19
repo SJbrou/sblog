@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-18T16:54:51+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">HEIC to JPG while keeping metadata</title><link href="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata" rel="alternate" type="text/html" title="HEIC to JPG while keeping metadata" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata"><![CDATA[<link rel="stylesheet" href="/assets/css/prism.css" />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-19T12:45:22+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">HEIC to JPG while keeping metadata</title><link href="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata" rel="alternate" type="text/html" title="HEIC to JPG while keeping metadata" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata"><![CDATA[<link rel="stylesheet" href="/assets/css/prism.css" />
 
 <script src="/assets/js/prism.js"></script>
 
@@ -120,13 +120,21 @@ else:
 </code></pre></div></div>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education"><![CDATA[<p>Why Universities have no incentive to teach well
 <!--excerpt--></p>
 
-<p>During highschool I envisioned university to educational heaven. An although educuation generally improved, the didactic skills of my teachers did not. And professors are not to blame! they are generally evaluated on their research output, and teaching is just a mandatory nuissance. Thus, there are misaligned incentives from the students’ point of view.</p>
+<p>Back in high school, I used to think that university would be educational paradise, thought by subject experts. And although I genuinly enjoy learning from my professors, I’ve been a bit disappointed by the differing teaching skills of my professors.</p>
 
-<p>Don’t get me wrong, I’ve had the pleasure of getting tought by some of the best professors. However, their incentives were mostly altruistic. They don’t get compensated to lecture better. They just have to do a “just enough” job so they can continue research. And the evaluation system has also been broken, with turnout rates of less than 8% making proper feedback impossible.</p>
+<p>This is not the professors’ fault. After all, as students, we want to learn from experts at the cutting edge of their fields. However, we also want those experts to be great teachers. This is where the Dutch higher educational system has some misaligned incentives.</p>
 
-<p>Becomming a lecturer at university generally is an academic path. Professors are required to</p>
+<p>Take the VU for example. Professors are evaluated primarily on their research output. The quality and quantity of their research determine how much time they’re allocated for research, with teaching filling the rest of their contracted hours. Essentially, teaching becomes a mandatory nuisance—a task to complete rather than a priority.</p>
 
-<p>https://nl.indeed.com/carrieregids/baan-vinden/hoe-word-je-hoogleraar</p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Why Universities have no incentive to teach well]]></summary></entry><entry><title type="html">Nudges in the course</title><link href="http://localhost:4000/VU/2024/10/30/Nudges-in-the-course" rel="alternate" type="text/html" title="Nudges in the course" /><published>2024-10-30T00:00:00+01:00</published><updated>2024-10-30T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/30/Nudges-in-the-course</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/30/Nudges-in-the-course"><![CDATA[<p>Essay: Practicing what you preach: Nudges in the Nudge course.
+<p>Another issue is the lack of didactic training for university professors. While secondary school teachers go through rigorous teaching programs to develop classroom skills, the path to becoming a university lecturer is entirely academic.
+https://nl.indeed.com/carrieregids/baan-vinden/hoe-word-je-hoogleraar
+ While I admire the academic prowess of my professors, perhaps it’s time to rethink how much teaching preparation they receive.</p>
+
+<p>Loosening some constraints on university teaching might also help. Many general introductory courses—like academic skills, statistics, or calculus—don’t necessarily require a world-renowned researchers. I’ve had the privilege of learning mathematics from a rare professor who had a full-time teaching role, and was nominated for best teacher. Prioritizing teaching quality can make a difference. Maybe not all courses need to be taught by field experts; instead, some could benefit from being led by expert teachers.</p>
+
+<p>Finally, the feedback loop for teaching is completely broken. There was a time when students had to fill out paper evaluations directly after their exams, rating the course, the professor, and the exam itself. While this wasn’t perfect, the response rate was consistently above 90%. Now, with the online evaluation system evalytics, response rates have plummeted to under 8% —sometimes with fewer than five students providing feedback for an entire course. This shift to online has crippled feedback mechanisms for professors, but also for the oversight boards like the OLC, which are supposed to monitor educational quality.</p>
+
+<p>Without proper feedback or external incentives, professors might do “just enough” to avoid being flagged by the broken system and continue their research. Luckily, many of my professors are intrisnsically motivated. However, relying on their goodwill is not sustainable. Hopefully we can align intrests and incentives, benifiting both the students and the educators.</p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Why Universities have no incentive to teach well]]></summary></entry><entry><title type="html">Nudges in the Nudge course</title><link href="http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course" rel="alternate" type="text/html" title="Nudges in the Nudge course" /><published>2024-10-30T00:00:00+01:00</published><updated>2024-10-30T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course"><![CDATA[<p>Essay: Practicing what you preach: Nudges in the Nudge course.
 best educational design practices in higher education
 <!--excerpt --></p>
 
@@ -179,7 +187,33 @@ li {
   <li>Started writing Essay on Nudge <span class="changelog_date">31-10-2024</span></li>
   <li>Started site development <span class="changelog_date">30-10-2024</span></li>
   <li>Learned about Jekyll <span class="changelog_date">30-10-2024</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Development wishlist]]></summary></entry><entry><title type="html">Followed courses</title><link href="http://localhost:4000/VU/2024/10/27/Followed-courses" rel="alternate" type="text/html" title="Followed courses" /><published>2024-10-27T00:00:00+02:00</published><updated>2024-10-27T00:00:00+02:00</updated><id>http://localhost:4000/VU/2024/10/27/Followed-courses</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/27/Followed-courses"><![CDATA[<p>List of courses I followed at Vrije Universiteit Amsterdam.<br />
+</ul>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Development wishlist]]></summary></entry><entry><title type="html">DTS Portfolio introduction</title><link href="http://localhost:4000/vu/2024/10/23/DTS-portfolio" rel="alternate" type="text/html" title="DTS Portfolio introduction" /><published>2024-10-23T00:00:00+02:00</published><updated>2024-10-23T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/23/DTS-portfolio</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/23/DTS-portfolio"><![CDATA[<p>Introduction to the DTS portfolio assignment
+<!--excerpt --></p>
+
+<p><br /></p>
+
+<p>To reflect and order thoughts concerning the themes of digitalization and sustainability throughout the curriculum, students were asked to deliver a short write-up concerning these themes for each of the followed courses in the master.</p>
+
+<h2 id="official-requirements">Official requirements:</h2>
+
+<ul>
+  <li>Reflection of at least 300 words <em>on each course</em> that is followed by a student</li>
+  <li>Reflection section concerning the master thesis project</li>
+  <li>Think out of the box, be creative</li>
+</ul>
+
+<h2 id="probing-questions">Probing questions</h2>
+
+<ul>
+  <li><a href="/assets/dts/Probing%20Questions.xlsx">Probing Questions.xlsx</a> / <a href="https://docs.google.com/spreadsheets/d/1XTrINVtwatpxhZITsJLs-Va559pbC-BhX6Oak15eCgk/edit?pli=1&amp;gid=0#gid=0">google sheet</a></li>
+  <li>To what extent did you reach the objectives of this course? (see course manuals!)</li>
+</ul>
+
+<p><br />
+Unfortunately, this is going to be quite a pain:</p>
+
+<p><img src="/assets/dts/planned_courses.png" alt="Planned Courses" style="width:70%; border-radius:10px; background-color:#f0f0f0; padding:0.6rem; display:block; margin:1rem auto;" />
+<!-- https://heather-buchel.com/blog/2024/03/letters-to-an-accessibility-advocate/ --></p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Introduction to the DTS portfolio assignment]]></summary></entry><entry><title type="html">Followed courses</title><link href="http://localhost:4000/VU/2024/10/22/Followed-courses" rel="alternate" type="text/html" title="Followed courses" /><published>2024-10-22T00:00:00+02:00</published><updated>2024-10-22T00:00:00+02:00</updated><id>http://localhost:4000/VU/2024/10/22/Followed-courses</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/22/Followed-courses"><![CDATA[<p>List of courses I followed at Vrije Universiteit Amsterdam.<br />
 <!--excerpt--></p>
 
 <style>
@@ -254,30 +288,4 @@ li {
   <li>Big Data Tools <span class="course-code">(AB_1259)</span></li>
   <li>Databases <span class="course-code">(X_401008)</span></li>
   <li>Software Engineering Processes <span class="course-code">(XB_0089)</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[List of courses I followed at Vrije Universiteit Amsterdam.]]></summary></entry><entry><title type="html">Portfolio introduction</title><link href="http://localhost:4000/vu/2024/10/23/DTS-portfolio" rel="alternate" type="text/html" title="Portfolio introduction" /><published>2024-10-23T00:00:00+02:00</published><updated>2024-10-23T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/23/DTS-portfolio</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/23/DTS-portfolio"><![CDATA[<p>Introduction to the DTS portfolio assignment
-<!--excerpt --></p>
-
-<p><br /></p>
-
-<p>To reflect and order thoughts concerning the themes of digitalization and sustainability throughout the curriculum, students were asked to deliver a short write-up concerning these themes for each of the followed courses in the master.</p>
-
-<h2 id="official-requirements">Official requirements:</h2>
-
-<ul>
-  <li>Reflection of at least 300 words <em>on each course</em> that is followed by a student</li>
-  <li>Reflection section concerning the master thesis project</li>
-  <li>Think out of the box, be creative</li>
-</ul>
-
-<h2 id="probing-questions">Probing questions</h2>
-
-<ul>
-  <li><a href="/assets/dts/Probing%20Questions.xlsx">Probing Questions.xlsx</a> / <a href="https://docs.google.com/spreadsheets/d/1XTrINVtwatpxhZITsJLs-Va559pbC-BhX6Oak15eCgk/edit?pli=1&amp;gid=0#gid=0">google sheet</a></li>
-  <li>To what extent did you reach the objectives of this course? (see course manuals!)</li>
-</ul>
-
-<p><br />
-Unfortunately, this is going to be quite a pain:</p>
-
-<p><img src="/assets/dts/planned_courses.png" alt="Planned Courses" style="width:70%; border-radius:10px; background-color:#f0f0f0; padding:0.6rem; display:block; margin:1rem auto;" />
-<!-- https://heather-buchel.com/blog/2024/03/letters-to-an-accessibility-advocate/ --></p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Introduction to the DTS portfolio assignment]]></summary></entry><entry><title type="html">Hello world</title><link href="http://localhost:4000/2024/10/20/hello-world" rel="alternate" type="text/html" title="Hello world" /><published>2024-10-20T00:00:00+02:00</published><updated>2024-10-20T00:00:00+02:00</updated><id>http://localhost:4000/2024/10/20/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/10/20/hello-world"><![CDATA[<p>Wow! my first blog entry!</p>]]></content><author><name>Stan Brouwer</name></author><summary type="html"><![CDATA[Wow! my first blog entry!]]></summary></entry></feed>
+</ul>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[List of courses I followed at Vrije Universiteit Amsterdam.]]></summary></entry><entry><title type="html">Hello world</title><link href="http://localhost:4000/2024/10/20/hello-world" rel="alternate" type="text/html" title="Hello world" /><published>2024-10-20T00:00:00+02:00</published><updated>2024-10-20T00:00:00+02:00</updated><id>http://localhost:4000/2024/10/20/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/10/20/hello-world"><![CDATA[<p>Wow! my first blog entry!</p>]]></content><author><name>Stan Brouwer</name></author><summary type="html"><![CDATA[Wow! my first blog entry!]]></summary></entry></feed>

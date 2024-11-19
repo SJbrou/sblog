@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Stan Brouwer
-title: Nudges in the course
+title: Nudges in the Nudge course
 permalink: /VU/:year/:month/:day/:title
 categories: "VU"  # Filter posts by "VU"
 published: true

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Stan Brouwer
-title: Portfolio introduction
+title: DTS Portfolio introduction
 categories: ["VU"]
 permalink: /:categories/:year/:month/:day/:title
 published: true

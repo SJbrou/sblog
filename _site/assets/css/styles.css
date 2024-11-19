@@ -11,8 +11,14 @@
 /* VARIABLES */
 html {
   font-family: "FontOld", serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.25rem;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
 }
 
 header {

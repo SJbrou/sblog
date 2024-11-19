@@ -129,3 +129,5 @@ else:
 """
 
 ```
+
+Luckily, this worked and I could export all HEIC photo's to JPG with both the "created", "modified" and "date created" tag set to the origional "date created" tag. 

@@ -1,129 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-20T00:18:12+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">HEIC to JPG while keeping metadata</title><link href="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata" rel="alternate" type="text/html" title="HEIC to JPG while keeping metadata" /><published>2024-11-16T00:00:00+01:00</published><updated>2024-11-16T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata"><![CDATA[<link rel="stylesheet" href="/assets/css/prism.css" />
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scraping the VU site - </title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/codecopy.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <article class="post">
+  <header>
+    <h1>Scraping the VU site</h1>
+  </header>
+
+  <!-- Optional Excerpt -->
+  
+    <section class="post-excerpt">
+      <p><link rel="stylesheet" href="/assets/css/prism.css" />
 
 <script src="/assets/js/prism.js"></script>
 
-<p>Using python to export apple HEIC images to jpg with their original “created” date<br />
-<!-- excerpt --></p>
+</p>
+    </section>
+  
 
-<p>Relatives asked me to help with their photo backups.<br />
-Their iPhone photos were in .HEIC format, which they couldn’t view. Exporting to jpg from the photos app overwrote the “Created” date and thus broke their sorting. (Maybe sort on “<em>Content Created</em>” date?).</p>
-
-<p>After trying everything, they decided to ask the <em>“computer”</em> guy for help (me).</p>
-
-<p>Luckily, photos have metadata, which we can manipulate in Python.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kn">import</span> <span class="n">os</span>
-<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="n">pillow_heif</span>
-<span class="kn">import</span> <span class="n">piexif</span>
-<span class="kn">from</span> <span class="n">PIL</span> <span class="kn">import</span> <span class="n">ExifTags</span>
-
-<span class="n">pillow_heif</span><span class="p">.</span><span class="nf">register_heif_opener</span><span class="p">()</span>
-
-<span class="c1"># Input and output directories
-</span><span class="n">from_directory</span> <span class="o">=</span> <span class="sh">"</span><span class="s">from</span><span class="sh">"</span>
-<span class="n">to_directory</span> <span class="o">=</span> <span class="sh">"</span><span class="s">to</span><span class="sh">"</span>
-
-<span class="c1"># Ensure they exists
-</span><span class="n">os</span><span class="p">.</span><span class="nf">makedirs</span><span class="p">(</span><span class="n">to_directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="c1"># Function extract EXIF DateTime or ContentCreated
-</span><span class="k">def</span> <span class="nf">extract_datetime_or_created</span><span class="p">(</span><span class="n">exif_data</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">exif_data</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">tag_id</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">exif_data</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
-            <span class="n">tag_name</span> <span class="o">=</span> <span class="n">ExifTags</span><span class="p">.</span><span class="n">TAGS</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">tag_id</span><span class="p">,</span> <span class="n">tag_id</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="sh">'</span><span class="s">DateTime</span><span class="sh">'</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">value</span>
-            <span class="k">if</span> <span class="n">tag_name</span> <span class="o">==</span> <span class="sh">'</span><span class="s">ContentCreated</span><span class="sh">'</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">value</span>
-    <span class="k">return</span> <span class="bp">None</span>
-
-<span class="c1"># Process all HEIC files in "from""
-</span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="nf">listdir</span><span class="p">(</span><span class="n">from_directory</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">filename</span><span class="p">.</span><span class="nf">lower</span><span class="p">().</span><span class="nf">endswith</span><span class="p">(</span><span class="sh">"</span><span class="s">.heic</span><span class="sh">"</span><span class="p">):</span>
-        <span class="n">heic_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">from_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">heic_file_path</span><span class="p">)</span>
-            <span class="n">exif_data</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">getexif</span><span class="p">()</span> <span class="c1"># Extract EXIF, use DateTime/ContentCreated
-</span>            <span class="n">content_created_str</span> <span class="o">=</span> <span class="nf">extract_datetime_or_created</span><span class="p">(</span><span class="n">exif_data</span><span class="p">)</span>
-            <span class="n">jpeg_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">to_directory</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">.jpg</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># Convert to JPEG
-</span>            <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">convert</span><span class="p">(</span><span class="sh">"</span><span class="s">RGB</span><span class="sh">"</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">content_created_str</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">content_created_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="n">content_created_str</span><span class="p">,</span> <span class="sh">"</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
-                    <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="n">content_created_datetime</span><span class="p">.</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">"</span><span class="s">%Y:%m:%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
-                <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
-                    <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="n">content_created_str</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">exif_timestamp</span> <span class="o">=</span> <span class="bp">None</span>
-
-            <span class="c1"># If valid ContentCreated/DateTime, overwrite EXIF
-</span>            <span class="n">exif_dict</span> <span class="o">=</span> <span class="n">piexif</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">exif</span><span class="sh">"</span><span class="p">,</span> <span class="sa">b</span><span class="sh">""</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">exif_timestamp</span><span class="p">:</span>
-                <span class="c1"># Set DateTime (EXIF tag 0x9003 (DateTimeOriginal))
-</span>                <span class="n">exif_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">0th</span><span class="sh">'</span><span class="p">][</span><span class="n">piexif</span><span class="p">.</span><span class="n">ImageIFD</span><span class="p">.</span><span class="n">DateTime</span><span class="p">]</span> <span class="o">=</span> <span class="n">exif_timestamp</span>
-                <span class="n">exif_dict</span><span class="p">[</span><span class="sh">'</span><span class="s">Exif</span><span class="sh">'</span><span class="p">][</span><span class="n">piexif</span><span class="p">.</span><span class="n">ExifIFD</span><span class="p">.</span><span class="n">DateTimeOriginal</span><span class="p">]</span> <span class="o">=</span> <span class="n">exif_timestamp</span>  <span class="c1"># Set DateTimeOriginal tag
-</span>
-            <span class="c1"># Convert EXIF dict to bytes
-</span>            <span class="n">exif_bytes</span> <span class="o">=</span> <span class="n">piexif</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">exif_dict</span><span class="p">)</span>
-
-            <span class="c1"># Save as JPEG
-</span>            <span class="n">img</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="n">jpeg_file_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">JPEG</span><span class="sh">"</span><span class="p">,</span> <span class="n">exif</span><span class="o">=</span><span class="n">exif_bytes</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Converted: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s"> to </span><span class="si">{</span><span class="n">jpeg_file_path</span><span class="si">}</span><span class="s"> (ContentCreated: </span><span class="si">{</span><span class="n">exif_timestamp</span><span class="si">}</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
-
-            
-            <span class="k">if</span> <span class="n">content_created_str</span><span class="p">:</span>
-                <span class="n">file_timestamp</span> <span class="o">=</span> <span class="n">content_created_datetime</span><span class="p">.</span><span class="nf">timestamp</span><span class="p">()</span>
-
-                <span class="c1"># Edit os creation and modification times
-</span>                <span class="n">os</span><span class="p">.</span><span class="nf">utime</span><span class="p">(</span><span class="n">jpeg_file_path</span><span class="p">,</span> <span class="p">(</span><span class="n">file_timestamp</span><span class="p">,</span> <span class="n">file_timestamp</span><span class="p">))</span>
-                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Updated timestamps for </span><span class="si">{</span><span class="n">jpeg_file_path</span><span class="si">}</span><span class="s"> (Created/Modified: </span><span class="si">{</span><span class="n">exif_timestamp</span><span class="si">}</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
-
-        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Failed to process </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
-
-
-<span class="sh">"""</span><span class="s">
-
-# Some code to inspect the metadata of HEIC files
-from PIL import Image
-import pillow_heif
-from PIL import ExifTags
-
-# Register HEIC support in Pillow
-pillow_heif.register_heif_opener()
-
-# Open the HEIC image file
-heic_file_path = </span><span class="sh">"</span><span class="s">path/file.HEIC</span><span class="sh">"</span><span class="s">
-img = Image.open(heic_file_path)
-
-# Show the image using the default viewer (Preview on macOS)
-img.show()
-
-# Extract EXIF data
-exif_data = img.getexif()
-
-if exif_data:
-    print(</span><span class="sh">"</span><span class="se">\n</span><span class="s">EXIF Data:</span><span class="sh">"</span><span class="s">)
-    for tag_id, value in exif_data.items():
-        tag_name = ExifTags.TAGS.get(tag_id, tag_id)  # Get the tag name from the ExifTags dictionary
-        print(f</span><span class="sh">"</span><span class="s">{tag_name}: {value}</span><span class="sh">"</span><span class="s">)
-else:
-    print(</span><span class="sh">"</span><span class="s">No EXIF data found.</span><span class="sh">"</span><span class="s">)
-</span><span class="sh">"""</span>
-
-</code></pre></div></div>
-
-<p>Luckily, this worked and I could export all HEIC photo’s to JPG with both the “created”, “modified” and “date created” tag set to the origional “date created” tag.</p>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Scraping the VU site</title><link href="http://localhost:4000/projects/2024/11/13/scraping-the-VU-site" rel="alternate" type="text/html" title="Scraping the VU site" /><published>2024-11-13T00:00:00+01:00</published><updated>2024-11-13T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/11/13/scraping-the-VU-site</id><content type="html" xml:base="http://localhost:4000/projects/2024/11/13/scraping-the-VU-site"><![CDATA[<link rel="stylesheet" href="/assets/css/prism.css" />
-
-<script src="/assets/js/prism.js"></script>
-
-<p>Finding course info on the VU page is a pain. lets scrape all active courses from their site and create a querriable database using R!
+  <!-- Main Content -->
+  
+  
+    <section class="content">
+      <p>Finding course info on the VU page is a pain. lets scrape all active courses from their site and create a querriable database using R!
 <!-- excerpt --></p>
 
 <p>As I like to follow extracurricular courses, I have to check what courses are available during what semester (period). However, the VU site provides no suchs availability. Lets create it ourselves by scraping all active courses from the VU site, and combining the data in a csv file which we <em>can</em> query.</p>
@@ -386,175 +295,385 @@ If there exists an &lt;h3&gt;Course Content&lt;/h3&gt; I would like the text val
 </span><span class="n">write.csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s2">"VU_courses"</span><span class="p">,</span><span class="w"> </span><span class="n">row.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Tada! now we can query the courses as intended!</p>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><category term="VU" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Misaligned incentives in university education</title><link href="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education" rel="alternate" type="text/html" title="Misaligned incentives in university education" /><published>2024-10-31T00:00:00+01:00</published><updated>2024-10-31T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/31/Misaligned-incentives-in-university-education"><![CDATA[<p>Why Universities have no incentive to teach well
-<!--excerpt--></p>
+<p>Tada! now we can query the courses as intended!</p>
 
-<p>Back in high school, I used to think that university would be educational paradise, thought by subject experts. And although I genuinly enjoy learning from my professors, I’ve been a bit disappointed by the differing teaching skills of my professors.</p>
+    </section>
+  
+</article>
 
-<p>This is not the professors’ fault. After all, as students, we want to learn from experts at the cutting edge of their fields. However, we also want those experts to be great teachers. This is where the Dutch higher educational system has some misaligned incentives.</p>
+<!-- Feed / Related Thoughts Section -->
+<section id="feed">
+  <!-- Show "Related" if show-feed-title is true or not defined -->
+  
+    <h1>Related</h1>  <!-- Display "Related" if show-feed-title is true or undefined -->
+  
 
-<p>Take the VU for example. Professors are evaluated primarily on their research output. The quality and quantity of their research determine how much time they’re allocated for research, with teaching filling the rest of their contracted hours. Essentially, teaching becomes a mandatory nuisance—a task to complete rather than a priority.</p>
+  <ul>
+     <!-- Sort posts by date (newest first) -->
 
-<p>Another issue is the lack of didactic training for university professors. While secondary school teachers go through rigorous teaching programs to develop classroom skills, the path to becoming a university lecturer is entirely academic.
-https://nl.indeed.com/carrieregids/baan-vinden/hoe-word-je-hoogleraar
- While I admire the academic prowess of my professors, perhaps it’s time to rethink how much teaching preparation they receive.</p>
+    
+    
+     <!-- Get the current year -->
 
-<p>Loosening some constraints on university teaching might also help. Many general introductory courses—like academic skills, statistics, or calculus—don’t necessarily require a world-renowned researchers. I’ve had the privilege of learning mathematics from a rare professor who had a full-time teaching role, and was nominated for best teacher. Prioritizing teaching quality can make a difference. Maybe not all courses need to be taught by field experts; instead, some could benefit from being led by expert teachers.</p>
+    
+      
+      
 
-<p>Finally, the feedback loop for teaching is completely broken. There was a time when students had to fill out paper evaluations directly after their exams, rating the course, the professor, and the exam itself. While this wasn’t perfect, the response rate was consistently above 90%. Now, with the online evaluation system evalytics, response rates have plummeted to under 8% —sometimes with fewer than five students providing feedback for an entire course. This shift to online has crippled feedback mechanisms for professors, but also for the oversight boards like the OLC, which are supposed to monitor educational quality.</p>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<p>Without proper feedback or external incentives, professors might do “just enough” to avoid being flagged by the broken system and continue their research. Luckily, many of my professors are intrisnsically motivated. However, relying on their goodwill is not sustainable. Hopefully we can align intrests and incentives, benifiting both the students and the educators.</p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Why Universities have no incentive to teach well]]></summary></entry><entry><title type="html">Nudges in the Nudge course</title><link href="http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course" rel="alternate" type="text/html" title="Nudges in the Nudge course" /><published>2024-10-30T00:00:00+01:00</published><updated>2024-10-30T00:00:00+01:00</updated><id>http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/30/Nudges-in-the-nudge-course"><![CDATA[<p>Essay: Practicing what you preach: Nudges in the Nudge course.
-best educational design practices in higher education
-<!--excerpt --></p>
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-<p><br /></p>
+        
+          <!-- Skip the current post itself -->
+          
 
-<ul>
-  <li>Could you do me a favour and please give me an hypothesis:</li>
-</ul>
+          <!-- Display year separator if post year differs and is not the current year -->
+          
 
-<p>During “Nudge: Influencing Behaviour” I was so impressed by the dedactic and pedagogic level that it bleaked my experience of other courses. 
-I was impressed by the high  pedagogic and dedactic level of the “Nudge: Influencing Behaviour” course. So much so that it bleaked performances of my other lecturers. Lets dive into the best practices deployed throughout the course</p>
+          <!-- Display month separator if post month differs -->
+          
+            <div class="month-separator-space"></div>
+            <div class="month-separator">
+              <span>November</span>
+            </div>
+            
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/projects/2024/11/16/HEIC-to-JPG-while-keeping-metadata">HEIC to JPG while keeping metadata</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  16th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
 
-<h2 id="context---what-is-nudgeing">Context - what is nudgeing</h2>
-<p>Thaler and Sunstein defined their concept as the <a href="https://en.wikipedia.org/wiki/Nudge_theory#Definition">following</a>:
-<cite>
-“A nudge, as we will use the term, is any aspect of the choice architecture that alters people’s behavior in a predictable way without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid. Nudges are not mandates. Putting fruit at eye level counts as a nudge. Banning junk food does not”.</cite></p>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<h2 id="stetting-a-course-up-for-succes">Stetting a course up for succes!</h2>
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-<h2 id="personal-experience">Personal experience</h2>
+        
+          <!-- Skip the current post itself -->
+          
+            
+      
+      
 
-<h2 id="didact-devices">Didact devices</h2>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Essay: Practicing what you preach: Nudges in the Nudge course. best educational design practices in higher education]]></summary></entry><entry><title type="html">Site todo</title><link href="http://localhost:4000/projects/2024/10/28/Site-todo" rel="alternate" type="text/html" title="Site todo" /><published>2024-10-28T00:00:00+01:00</published><updated>2024-10-28T00:00:00+01:00</updated><id>http://localhost:4000/projects/2024/10/28/Site-todo</id><content type="html" xml:base="http://localhost:4000/projects/2024/10/28/Site-todo"><![CDATA[<p>Development wishlist
-<!--excerpt--></p>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<style>
-li {
-  display: flex;
-  justify-content: space-between;
-}
-.changelog_date {
-  margin-left: auto;
-  text-align: right;
-  font-family: Menlo, Monaco, "Courier New", monospace; /* Technical font */
-  font-size: 0.9em; /* Slightly smaller font size, about 1px smaller */
-}
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-</style>
+        
+          <!-- Skip the current post itself -->
+          
 
-<h3 id="todo">Todo</h3>
-<ul>
-  <li>Include report bug option</li>
-  <li>Include “respond” options</li>
-  <li>Improve post categorization / add tags-code</li>
-</ul>
+          <!-- Display year separator if post year differs and is not the current year -->
+          
 
-<h3 id="changelog">Changelog</h3>
+          <!-- Display month separator if post month differs -->
+          
+            <div class="month-separator-space"></div>
+            <div class="month-separator">
+              <span>October</span>
+            </div>
+            
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/VU/2024/10/31/Misaligned-incentives-in-university-education">Misaligned incentives in university education</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  31th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
 
-<ul>
-  <li>Implemented simple post categorization <span class="changelog_date">01-11-2024</span></li>
-  <li>Started writing Essay on Nudge <span class="changelog_date">31-10-2024</span></li>
-  <li>Started site development <span class="changelog_date">30-10-2024</span></li>
-  <li>Learned about Jekyll <span class="changelog_date">30-10-2024</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="projects" /><summary type="html"><![CDATA[Development wishlist]]></summary></entry><entry><title type="html">DTS Portfolio introduction</title><link href="http://localhost:4000/vu/2024/10/23/DTS-portfolio" rel="alternate" type="text/html" title="DTS Portfolio introduction" /><published>2024-10-23T00:00:00+02:00</published><updated>2024-10-23T00:00:00+02:00</updated><id>http://localhost:4000/vu/2024/10/23/DTS-portfolio</id><content type="html" xml:base="http://localhost:4000/vu/2024/10/23/DTS-portfolio"><![CDATA[<p>Introduction to the DTS portfolio assignment
-<!--excerpt --></p>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<p><br /></p>
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-<p>To reflect and order thoughts concerning the themes of digitalization and sustainability throughout the curriculum, students were asked to deliver a short write-up concerning these themes for each of the followed courses in the master.</p>
+        
+          <!-- Skip the current post itself -->
+          
 
-<h2 id="official-requirements">Official requirements:</h2>
+          <!-- Display year separator if post year differs and is not the current year -->
+          
 
-<ul>
-  <li>Reflection of at least 300 words <em>on each course</em> that is followed by a student</li>
-  <li>Reflection section concerning the master thesis project</li>
-  <li>Think out of the box, be creative</li>
-</ul>
+          <!-- Display month separator if post month differs -->
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/VU/2024/10/30/Nudges-in-the-nudge-course">Nudges in the Nudge course</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  30th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
 
-<h2 id="probing-questions">Probing questions</h2>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<ul>
-  <li><a href="/assets/dts/Probing%20Questions.xlsx">Probing Questions.xlsx</a> / <a href="https://docs.google.com/spreadsheets/d/1XTrINVtwatpxhZITsJLs-Va559pbC-BhX6Oak15eCgk/edit?pli=1&amp;gid=0#gid=0">google sheet</a></li>
-  <li>To what extent did you reach the objectives of this course? (see course manuals!)</li>
-</ul>
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-<p><br />
-Unfortunately, this is going to be quite a pain:</p>
+        
+          <!-- Skip the current post itself -->
+          
 
-<p><img src="/assets/dts/planned_courses.png" alt="Planned Courses" style="width:70%; border-radius:10px; background-color:#f0f0f0; padding:0.6rem; display:block; margin:1rem auto;" />
-<!-- https://heather-buchel.com/blog/2024/03/letters-to-an-accessibility-advocate/ --></p>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[Introduction to the DTS portfolio assignment]]></summary></entry><entry><title type="html">Followed courses</title><link href="http://localhost:4000/VU/2024/10/22/Followed-courses" rel="alternate" type="text/html" title="Followed courses" /><published>2024-10-22T00:00:00+02:00</published><updated>2024-10-22T00:00:00+02:00</updated><id>http://localhost:4000/VU/2024/10/22/Followed-courses</id><content type="html" xml:base="http://localhost:4000/VU/2024/10/22/Followed-courses"><![CDATA[<p>List of courses I followed at Vrije Universiteit Amsterdam.<br />
-<!--excerpt--></p>
+          <!-- Display year separator if post year differs and is not the current year -->
+          
 
-<style>
-li {
-  display: flex;
-  justify-content: space-between;
-}
-.course-code {
-  margin-left: auto;
-  text-align: right;
-  font-family: Menlo, Monaco, "Courier New", monospace; /* Technical font */
-  font-size: 0.9em; /* Slightly smaller font size, about 1px smaller */
-}
+          <!-- Display month separator if post month differs -->
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/projects/2024/10/28/Site-todo">Site todo</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  28th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
 
-</style>
+      <!-- For Post Pages: Filter posts for the same category -->
+      
 
-<p>Each course corresponds to 6 <a href="https://education.ec.europa.eu/education-levels/higher-education/inclusive-and-connected-higher-education/european-credit-transfer-and-accumulation-system">ECTS</a>. A full year of university education is equal to 60 <a href="https://education.ec.europa.eu/education-levels/higher-education/inclusive-and-connected-higher-education/european-credit-transfer-and-accumulation-system">ECTS</a>.</p>
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
 
-<p>Last updated: 31-10-2024</p>
+        
+          <!-- Skip the current post itself -->
+          
 
-<h3 id="master-information-science">Master Information Science</h3>
-<ul>
-  <li>Nudge: influencing Behavior <span class="course-code">(E_MFDM_NIB)</span></li>
-  <li>Supply Chain Data Analytics <span class="course-code">(E_TSCM_SCDA)</span></li>
-  <li>Data Analytics for Accounting and Control <span class="course-code">(E_ACC_DAAC)</span></li>
-  <li>Network Analysis <span class="course-code">(E_TSCM_NA)</span></li>
-  <li>Networks and Graphs <span class="course-code">(X_401010)</span></li>
-  <li>Statistics with R <span class="course-code">(X_418156)</span></li>
-  <li>Information Retrieval <span class="course-code">(X_40035)</span></li>
-  <li>Logistics Analysis <span class="course-code">(X_401084)</span></li>
-  <li>Managing Negotiations: Getting to Yes <span class="course-code">(E_MFDM_MNGY)</span></li>
-  <li>The Social Web <span class="course-code">(X_405086)</span></li>
-  <li>Digital Architecture <span class="course-code">(XM_0127)</span></li>
-  <li>Economic Challenges for Minor Students <span class="course-code">(E_MUE_ECMS)</span></li>
-  <li>An Introduction to Economics <span class="course-code">(E_MUE_AIE)</span></li>
-  <li>Advanced Programming <span class="course-code">(X_400561)</span></li>
-  <li>Digitalization and Sustainability <span class="course-code">(XM_0089)</span></li>
-  <li>Knowledge Organization <span class="course-code">(X_405065)</span></li>
-</ul>
+          <!-- Display year separator if post year differs and is not the current year -->
+          
 
-<h3 id="bachelor-human-movement-sciences">Bachelor Human Movement Sciences</h3>
-<ul>
-  <li>Bachelor Research Project <span class="course-code">(Thesis, 24 ECTS)(B_BOP)</span></li>
-  <li>Anatomy of the Motor System <span class="course-code">(B_ANATBEW)</span></li>
-  <li>History and Philosophy of Movement Sciences <span class="course-code">(B_WETGSFIL)</span></li>
-  <li>Neuropsychology and Rehabilitation Psychology <span class="course-code">(B_NEURREVPSY)</span></li>
-  <li>Applied Exercise Physiology <span class="course-code">(B_TIF)</span></li>
-  <li>Sensorimotor Coordination <span class="course-code">(B_SENSOCOR)</span></li>
-  <li>Mechanical Analysis <span class="course-code">(B_MECHAN)</span></li>
-  <li>Research Methods/Epidemiology <span class="course-code">(B_OZMEPIDEM)</span></li>
-  <li>Movement and Health at Work <span class="course-code">(B_BWGZWERK)</span></li>
-  <li>Neurosciences <span class="course-code">(B_NEURO)</span></li>
-  <li>Rehabilitation <span class="course-code">(B_REVAL)</span></li>
-  <li>Motorisch Leren en Ontwikkelen <span class="course-code">(B_MOTORLEREN)</span></li>
-  <li>Muscle Physiology <span class="course-code">(B_SPIERFYS)</span></li>
-  <li>Exercise Training and Performance <span class="course-code">(B_TRAINING)</span></li>
-  <li>Introduction to Movement and Health <span class="course-code">(B_BWGZ)</span></li>
-  <li>Statistics <span class="course-code">(B_STAT)</span></li>
-  <li>Pathology of Movement <span class="course-code">(B_PATHOLOGIE)</span></li>
-  <li>Clinical Movement Analysis <span class="course-code">(B_CLINMOVEAN)</span></li>
-  <li>Philosophy of the Human Movement Sciences <span class="course-code">(B_FIL2)</span></li>
-  <li>Measurement of Physical Quantities <span class="course-code">(B_METENVANFG)</span></li>
-  <li>Introduction to Exercise Physiology <span class="course-code">(B_IF)</span></li>
-  <li>Mathematics <span class="course-code">(B_WIS)</span></li>
-  <li>Academic Exploration <span class="course-code">(B_ACVERK)</span></li>
-  <li>Digital Signal Processing <span class="course-code">(B_VWDS)</span></li>
-  <li>Biomechanics <span class="course-code">(B_BM)</span></li>
-  <li>
-    <p>Functional Anatomy <span class="course-code">(B_INLANAT)</span></p>
-  </li>
-  <li>Web Technology <span class="course-code">(X_400488)</span></li>
-  <li>Big Data Tools <span class="course-code">(AB_1259)</span></li>
-  <li>Databases <span class="course-code">(X_401008)</span></li>
-  <li>Software Engineering Processes <span class="course-code">(XB_0089)</span></li>
-</ul>]]></content><author><name>Stan Brouwer</name></author><category term="VU" /><summary type="html"><![CDATA[List of courses I followed at Vrije Universiteit Amsterdam.]]></summary></entry><entry><title type="html">Hello world</title><link href="http://localhost:4000/2024/10/20/hello-world" rel="alternate" type="text/html" title="Hello world" /><published>2024-10-20T00:00:00+02:00</published><updated>2024-10-20T00:00:00+02:00</updated><id>http://localhost:4000/2024/10/20/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/10/20/hello-world"><![CDATA[<p>Wow! my first blog entry!</p>]]></content><author><name>Stan Brouwer</name></author><summary type="html"><![CDATA[Wow! my first blog entry!]]></summary></entry></feed>
+          <!-- Display month separator if post month differs -->
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/vu/2024/10/23/DTS-portfolio">DTS Portfolio introduction</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  23th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
+
+      <!-- For Post Pages: Filter posts for the same category -->
+      
+
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+          
+            
+            
+
+        
+          <!-- Skip the current post itself -->
+          
+
+          <!-- Display year separator if post year differs and is not the current year -->
+          
+
+          <!-- Display month separator if post month differs -->
+          
+    
+          <li>
+            <div class="post-entry">
+              <span class="post-title"><a href="/VU/2024/10/22/Followed-courses">Followed courses</a></span>
+              <div class="post-separator"></div>
+              <span class="post-date">
+                
+                
+                
+                  22th
+                  
+                
+              </span>
+            </div>
+          </li>
+        
+      
+    
+      
+      
+
+      <!-- For Post Pages: Filter posts for the same category -->
+      
+
+      <!-- Show only related posts based on category -->
+      
+        
+        
+        
+        <!-- Check if any category in post.categories matches any category in page.categories -->
+        
+
+        
+      
+    
+  </ul>
+</section>
+
+
+    </main>
+  </div>
+</body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- Footer Content -->
+<div class="footer-content">
+  
+</div>
+
+<!-- Separator -->
+<div class="footer-separator">
+  <span class="rotated-symbol">§</span>
+  <span class="rotated-symbol">§</span>
+  <span class="rotated-symbol">§</span>
+</div>
+
+<!-- Footer Navigation -->
+<div class="footer-nav">
+  
+    <span class="footer-span">
+      <a href="/me.html">Me</a>
+    </span>
+  
+    <span class="footer-span">
+      <a href="/">Thoughts</a>
+    </span>
+  
+    <span class="footer-span">
+      <a href="/projects">Projects</a>
+    </span>
+  
+    <span class="footer-span">
+      <a href="/vu">VU</a>
+    </span>
+  
+    <span class="footer-span">
+      <a href="/favourites.html">Favs</a>
+    </span>
+  
+</div>

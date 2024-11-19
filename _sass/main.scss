@@ -41,8 +41,13 @@ $table-odd-background-color: #f9f9f9;
 // Global Defaults
 html {
   font-family: $font-family;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.25rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
 }
 
 header {

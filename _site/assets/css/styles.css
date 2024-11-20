@@ -176,6 +176,7 @@ pre {
   overflow: hidden; /* Prevent scrolling from affecting the button */
   margin-bottom: 1rem;
   white-space: pre-wrap;
+  background-color: #f4f4f4;
 }
 
 pre code {

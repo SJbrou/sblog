@@ -57,7 +57,7 @@ body {
 }
 
 .container a:hover {
-  color: rgb(213, 154, 77);
+  color: rgb(227, 169, 94);
 }
 
 /* Headings */
@@ -126,11 +126,14 @@ blockquote::after {
 }
 
 /* Images */
-img {
+.image-bordered {
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 0.1rem;
   display: block;
-  max-width: 100%;
-  margin: 0 0 1rem;
-  border-radius: 5px;
+  margin: 1px auto;
+  box-shadow: 0 6px 12px rgba(19, 10, 0, 0.1);
 }
 
 /* Tables */
@@ -165,11 +168,29 @@ ul, ol, dl, p {
   margin-bottom: 1rem;
 }
 
-.copy-button {
+/* Style for the pre block */
+pre {
+  position: relative;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow: hidden; /* Prevent scrolling from affecting the button */
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+}
+
+pre code {
+  display: block;
+  overflow: auto; /* Scroll only the code content */
+  font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
+  font-size: 0.8rem !important;
+  line-height: 1rem !important;
+}
+
+.copy-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #f4f4f4;
+  background-color: rgb(237, 177, 98);
   color: #333;
   border: none;
   padding: 5px 10px;
@@ -177,32 +198,19 @@ ul, ol, dl, p {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
-.copy-button:hover {
-  background-color: rgb(203, 141, 59);
-}
-
-.copy-button:active {
-  background-color: rgb(200, 134, 46);
+  z-index: 100; /* Keep the button above everything else */
+  pointer-events: auto; /* Ensure the button is clickable */
 }
 
-/* Apply default VSCode font to code blocks */
-/* Overwrite Prism font for code blocks */
-pre[class*=language-] {
-  font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
-  font-size: 0.6rem; /* Adjust to your preferred size */
-  line-height: 0.6rem; /* Adjust line height for better readability */
-  border-radius: 8px;
+.copy-btn:hover {
+  background-color: rgb(255, 206, 143);
+}
+
+.copy-btn:active {
+  background-color: rgb(255, 206, 143);
 }
 
 /* For inline code */
-code {
-  font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
-  background-color: #f4f4f4; /* Optional: Adds background for inline code */
-  padding: 0.2rem 0.4rem;
-  border-radius: 8px;
-}
-
 /* Custom Feed Section */
 #feed {
   font-family: var(--font-family);
@@ -254,7 +262,7 @@ code {
 }
 
 .post-title:hover {
-  color: rgb(213, 154, 77); /* Hover color */
+  color: rgb(227, 169, 94); /* Hover color */
 }
 
 /* Post separator line between title and date */
@@ -273,11 +281,11 @@ code {
 
 /* Change separator and date color when title is hovered */
 .post-title:hover ~ .post-separator {
-  border-color: rgb(213, 154, 77);
+  border-color: rgb(227, 169, 94);
 }
 
 .post-title:hover ~ .post-date {
-  color: rgb(213, 154, 77);
+  color: rgb(227, 169, 94);
 }
 
 /* Footer Styling */

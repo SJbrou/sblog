@@ -19,8 +19,10 @@ Finding course info on the VU page is a pain. lets scrape all active courses fro
 As I like to follow extracurricular courses, I have to check what courses are available during what semester (period). However, the VU site provides no suchs availability. Lets create it ourselves by scraping all active courses from the VU site, and combining the data in a csv file which we *can* query. 
 
 
-<img src="{{ "/assets/content/scraping_the_vu_site/vu_site.png" | relative_url }}" alt="Why is querying the period impossible?!" style="width:100%; border-radius:10px; background-color:#f0f0f0; padding:0.6rem; display:block; margin:1rem auto;">
-
+<img 
+  src="{{ "/assets/content/scraping_the_vu_site/vu_site.png" | relative_url }}" 
+  alt="Why is querying the period impossible?!" 
+  class="image-bordered">
 
 
 
@@ -42,7 +44,7 @@ The <a href="https://research.vu.nl/en/courses/?year=2024&ordering=title&descend
 
 Lets start by cleaning the worksapce and loading required dependencies
 
-```r
+```R
 # a nice function to clear the worksapce and install + load required packages
 
 # Clear workspace

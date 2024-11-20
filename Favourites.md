@@ -6,7 +6,8 @@ title: My favourite resources
 # Favourites
 Some of my favourite resources, all neatly ordered.
 
-- [practical betternemt](https://practicalbetterments.com/)
+
+
 
 
 ## Personal Blogs
@@ -16,6 +17,12 @@ Some of my favourite resources, all neatly ordered.
 
  Ones i like design wise
 - [laplab](https://laplab.me)
+- [manuelmoreale](https://manuelmoreale.com/) (site inspiration!)
+
+
+## Practical blogs
+- [Practical betterment](https://practicalbetterments.com/)
+
 
 ## Datasets
 - [sovai's open investment dataset](https://github.com/sovai-research/open-investment-datasets)

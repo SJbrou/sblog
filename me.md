@@ -14,8 +14,8 @@ I'm available and happy to talk with you. Just send me your thoughs!
 <br>
 I like teaching.
 
-- Thought ~2000 hours of sports lessons
-- Crafted specific lesson plans and dedicated online resources
+- Taught ~2000 hours of sports lessons
+- Crafted specific lesson plans with <a href="https://sjbrou.github.io/Metenisweten/Row.html">dedicated online resources</a>
 - TA in marketing and quantitative research methods (upcomming)
 
 <br>

@@ -17,7 +17,7 @@ $post-title-color: #303030;
 $post-date-color: #9a9a9a;
 
 $body-color: #515151;
-$body-background-color: #faf1e2;
+$body-background-color: #fff5e3e3;
 $link-color: rgb(188, 121, 34);
 $link-hover-color: rgb(213, 154, 77);
 // $link-hover-color: #3a67af;
@@ -246,7 +246,7 @@ ul, ol, dl, p {
 pre[class*="language-"] {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
   font-size: 0.6rem;  /* Adjust to your preferred size */
-  //line-height: 0.6rem; /* Adjust line height for better readability */
+  line-height: 0.6rem; /* Adjust line height for better readability */
   border-radius: 8px;
 }
 
@@ -254,7 +254,7 @@ pre[class*="language-"] {
 code {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
   background-color: #f4f4f4;  /* Optional: Adds background for inline code */
-  //padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0.4rem;
   border-radius: 8px;
 }
 

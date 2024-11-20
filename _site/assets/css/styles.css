@@ -31,7 +31,7 @@ section {
 
 body {
   color: #515151;
-  background-color: #faf1e2;
+  background-color: rgba(255, 245, 227, 0.8901960784);
   font-size: var(--font-size, 1rem); /* Add default font size */
   font-family: var(--font-family, "FontOld");
   line-height: var(--line-height, 1.5);
@@ -191,6 +191,7 @@ ul, ol, dl, p {
 pre[class*=language-] {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
   font-size: 0.6rem; /* Adjust to your preferred size */
+  line-height: 0.6rem; /* Adjust line height for better readability */
   border-radius: 8px;
 }
 
@@ -198,6 +199,7 @@ pre[class*=language-] {
 code {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
   background-color: #f4f4f4; /* Optional: Adds background for inline code */
+  padding: 0.2rem 0.4rem;
   border-radius: 8px;
 }
 

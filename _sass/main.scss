@@ -17,7 +17,7 @@ $post-title-color: #303030;
 $post-date-color: #9a9a9a;
 
 $body-color: #515151;
-$body-background-color: #f9f4ec;
+$body-background-color: #faf1e2;
 $link-color: rgb(188, 121, 34);
 $link-hover-color: rgb(213, 154, 77);
 // $link-hover-color: #3a67af;
@@ -33,13 +33,12 @@ $blockquote-border-color: #e5e5e5;
 $table-border-color: #e5e5e5;
 $table-odd-background-color: #f9f9f9;
 
-// Global Defaults
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* Ensures padding and borders are included in width/height calculations */
-}
 
+
+
+
+
+// Global Defaults
 html {
   font-family: $font-family;
   font-size: 1.25rem;
@@ -47,7 +46,7 @@ html {
   
   @media (max-width: 768px) {
     font-size: 1rem;
-    line-height: 1.6rem; /* Increase line-height for better readability */
+    line-height: 1rem;
   }
 }
 
@@ -59,6 +58,7 @@ section {
   padding-bottom: 2rem;
 }
 
+
 body {
   color: $body-color;
   background-color: $body-background-color;
@@ -68,13 +68,16 @@ body {
   padding-top: 1em;
 }
 
+
+
+
+
 /* Main container style */
 .container {
   max-width: 38rem;
   padding: 1rem;
   margin-left: auto;
   margin-right: auto;
-  overflow-x: hidden; /* Prevent horizontal overflow */
 
   @media (max-width: 768px) {
     padding-left: 0.75rem;
@@ -91,6 +94,7 @@ body {
 }
 
 /* Headings */
+
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -158,7 +162,6 @@ blockquote {
 
   @media (max-width: 768px) {
     padding: 1rem 1.5rem;
-    margin: 1rem 0;
     &::before,
     &::after {
       font-size: 2rem;
@@ -209,7 +212,10 @@ ul, ol, dl, p {
   margin-bottom: 1rem;
 }
 
-/* Code Block Styling */
+
+
+// CODE CODE CODE CODE CODE CODE CODE
+
 .copy-button {
   position: absolute;
   top: 10px;
@@ -226,31 +232,40 @@ ul, ol, dl, p {
   &:hover {
     background-color: rgb(203, 141, 59);
   }
-
-  &:active {
-    background-color: rgb(200, 134, 46);
-  }
 }
+
+.copy-button:active {
+  background-color: rgb(200, 134, 46);
+}
+
+
+
 
 /* Apply default VSCode font to code blocks */
+/* Overwrite Prism font for code blocks */
 pre[class*="language-"] {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
-  font-size: 0.6rem;
-  line-height: 0.6rem;
+  font-size: 0.6rem;  /* Adjust to your preferred size */
+  line-height: 0.6rem; /* Adjust line height for better readability */
   border-radius: 8px;
-  overflow-x: auto; /* Allow horizontal scrolling */
-  white-space: pre-wrap; /* Ensure wrapping for long code lines */
 }
 
+/* For inline code */
 code {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4;  /* Optional: Adds background for inline code */
   padding: 0.2rem 0.4rem;
   border-radius: 8px;
-  white-space: nowrap; /* Prevent wrapping */
 }
 
+
+
+// Quick update to check if I can update the site remotely
+
+
+
 /* Custom Feed Section */
+
 #feed {
   font-family: var(--font-family);
   margin: 1rem;
@@ -259,6 +274,8 @@ code {
 #feed h1 {
   text-align: center;
 }
+
+
 
 /* Remove list item dots (default) for specific lists */
 #feed ul, #feed ol {
@@ -278,8 +295,9 @@ code {
 }
 
 .month-separator-space {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Adjust the space between months (feel free to change this value) */
 }
+
 
 /* Flex container for the post entry */
 .post-entry {
@@ -288,13 +306,8 @@ code {
   align-items: center;
   margin: 5px 0;
   position: relative;
-  flex-wrap: wrap; /* Allow items to wrap if needed */
-
-  @media (max-width: 768px) {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start;
-  }
 }
+
 
 /* Title section */
 .post-title {
@@ -307,14 +320,15 @@ code {
 }
 
 .post-title:hover {
-  color: $link-hover-color;
+  color: $link-hover-color;  /* Hover color */
 }
+
 
 /* Post separator line between title and date */
 .post-separator {
   flex-grow: 1;
   border-top: 1px solid $post-date-color; /* grey line */
-  margin: 0 1rem;
+  margin: 0 1rem; /* Adjust this to control the space between title and date */
 }
 
 /* Date section */
@@ -324,6 +338,7 @@ code {
   font-size: 1rem;
 }
 
+/* Change separator and date color when title is hovered */
 .post-title:hover ~ .post-separator {
   border-color: $link-hover-color;
 }
@@ -331,6 +346,7 @@ code {
 .post-title:hover ~ .post-date {
   color: $link-hover-color;
 }
+
 
 /* Footer Styling */
 #footer {
@@ -350,36 +366,44 @@ code {
 .footer-content {
   font-family: var(--font-family);
   font-size: 1.25em;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  color: #444444;
+  margin-bottom: 1em;
 }
 
-footer {
+.footer-separator {
+  font-family: var(--modern-font-family);
+  font-size: 1.5rem;
+  color: $body-color;
   text-align: center;
-  color: #303030;
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Adjust spacing between the symbols */
 }
 
-footer a {
-  color: inherit;
+.rotated-symbol {
+  display: inline-block;
+  transform: rotate(90deg); /* Rotate each symbol */
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+.footer-nav {
+  font-family: var(--modern-font-family);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.footer-nav a {
   text-decoration: none;
+  color: $body-color;
+  transition: color 0.3s ease;
 }
 
-footer a:hover {
-  color: #c69c60;
+.footer-nav a.current {
+  color: $link-color;
 }
 
-/* Ensure tables, pre, and blockquote are properly styled on mobile */
-@media (max-width: 768px) {
-  table {
-    td, th {
-      font-size: 0.9em;
-      padding: 0.4rem;
-    }
-  }
-
-  pre[class*="language-"], code {
-    font-size: 0.8rem;
-  }
+.footer-nav a:hover {
+  color: $link-color;
 }

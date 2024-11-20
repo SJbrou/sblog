@@ -199,7 +199,6 @@ pre[class*=language-] {
 code {
   font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
   background-color: #f4f4f4; /* Optional: Adds background for inline code */
-  padding: 0.2rem 0.4rem;
   border-radius: 8px;
 }
 
